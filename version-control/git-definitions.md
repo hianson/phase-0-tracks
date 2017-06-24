@@ -1,4 +1,4 @@
-# Git Definitions
+# **Git Definitions**
 
 **Instructions: ** Define each of the following Git concepts.
 
@@ -13,4 +13,4 @@ Branches are copies of your main project, and whose changes are intended to be c
 After modifying files and adding them to staging, a commit is executed to save those changes to your project, and to give a small description of the change. Ideally, commits should be often, meaning commit messages should be short and specific, and (according to Git) in the present tense.
 * What is a merge conflict?
 
-A merge conflict occurs when trying to combine two branches which have different changes in its latest commit. For example, merging branch 1 (with committed files "abc") and branch 2 (with committed files "xyz") will result in a merge conflict, because the 2 branches have different levels of commit. 
+A merge conflict occurs when trying to combine two branches which have different changes in its latest commit. For example, merging branch 1 (with committed files "abc") and branch 2 (with committed files "xyz") will result in a merge conflict, because the 2 branches have different levels of commit.
