@@ -1,7 +1,3 @@
-body {
-	background-color: black;
-}
-
 #octopus {
 	display: block;
 	margin: auto;
@@ -9,9 +5,13 @@ body {
 }
 
 #glasses {
-
+	display: block;
+	margin: auto;
+	margin-top: -185px;
 }
 
 #hat {
-
+	display: block;
+	margin: auto;
+	margin-top: -220px;
 }
