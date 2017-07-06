@@ -5,12 +5,14 @@
 }
 
 #glasses {
+	z-index: 1;
 	display: block;
 	margin: auto;
 	margin-top: -185px;
 }
 
 #hat {
+	z-index: 1;
 	display: block;
 	margin: auto;
 	margin-top: -220px;
