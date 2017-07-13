@@ -1,0 +1,29 @@
+#contact-info p {
+  font-size: .8em;
+  }
+
+.job {
+  background-color: #e9e5dc;
+  border-radius: 5px;
+  margin: 5px 0px 5px 0px;
+  padding: 7px;
+}
+ul.accomplishments {
+  font-size: .8em;
+}
+
+#contact-info p:hover {
+  color: #80ff80;
+}
+
+section > section.job {
+  border: 1px solid black;
+}
+
+ul > li.featured {
+  font-weight: bold;
+}
+
+li:first-child {
+  color: red;
+}
