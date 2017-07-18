@@ -1,0 +1,22 @@
+Robot Algorithm for using an Elevator:
+
+- If robot needs elevator
+	- Go to elevator
+	- If robot going Up
+		Press Up button
+		robot_direction = up
+	- Otherwise:
+		Press Down button
+		robot_direction = down
+		- Until elevator door opens
+			- Wait
+			- If elevator door opens and elevator_direction = robot_direction
+				- Enter elevator
+				- Press floor number
+				- robot_floor = #
+					- Until elevator_floor == robot_floor
+						- Wait
+					- Otherwise:
+						- Exit elevator
+			- Otherwise:
+				- Wait
