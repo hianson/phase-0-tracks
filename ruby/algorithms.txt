@@ -20,3 +20,21 @@ Robot Algorithm for using an Elevator:
 						- Exit elevator
 			- Otherwise:
 				- Wait
+
+Real-Life Algorithm: Potty Training a New Puppy
+Algorithm should help reinforce potty training a puppy whenever it stops playing
+
+- While puppy is awake:
+	- While puppy is playful:
+		- Play with puppy
+	- Otherwise:
+		- If puppy is not playful
+			- Place puppy on pee pad
+			- If puppy pees
+				- Cheer "good puppy!"
+			- Otherwise:
+				- If puppy becomes playful
+				- Play with puppy
+- Otherwise:
+	- If puppy is sleeping
+		- Wait
