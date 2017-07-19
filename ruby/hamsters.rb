@@ -17,3 +17,9 @@ if hamster_age == "".to_i
 else
   puts hamster_age
 end
+
+puts "Hamster Name: #{hamster_name}"
+puts "Hamster Volume: #{hamster_volume}"
+puts "Hamster Fur Color: #{hamster_color}"
+puts "Hamster Recommended for Adoption: #{hamster_recommend}"
+puts "Hamster Age: #{hamster_age}"
