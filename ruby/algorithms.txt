@@ -28,10 +28,25 @@ Algorithm should help reinforce potty training a puppy whenever it stops playing
 	- While puppy is playful:
 		- Play with puppy
 	- Otherwise:
+		- If feeding time
+			- Walk to refrigerator
+			- Open door
+			- If raw dog food is less than 1 week's worth of dog food in container
+				- Open freezer
+				- Unpack 1 week's worth of frozen raw dog food
+				- Place into container inside refrigerator for thawing
+			- Otherwise:
+				- Place raw dog food into doggy bowl
+				- Command puppy to sit
+				- If puppy sits
+					- Cheer "good puppy!" and place doggy bowl in front of puppy
+				- Otherwise:
+					- Wait
+	- Otherwise:
 		- If puppy is not playful
 			- Place puppy on pee pad
-			- If puppy pees
-				- Cheer "good puppy!"
+			- If puppy goes potty
+				- Cheer "good potty, puppy!"
 			- Otherwise:
 				- If puppy becomes playful
 				- Play with puppy
