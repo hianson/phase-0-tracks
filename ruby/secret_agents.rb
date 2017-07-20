@@ -57,24 +57,32 @@ end
 #encrypt takes a string, changes the string, returning the string, which makes the encrypt function evaluate to a new string, that decrypt then manipulates
 
 
-#ask encrypt or decrypt using gets chomp
-#if statement parsing it in value
-
+# ask encrypt or decrypt using gets chomp
+# if statement parsing it in value
+#
 # ask for password using getschomp
+#
+# call appropriate method using password as argument
+# puts new password
 
-#call appropriate method using password as argument
-#puts new password
-
-puts "Would you like to encrypt of decrypt your password?"
-answer = gets.chomp!
-
-puts "Enter your password"
-password = gets.chomp
-
-if answer == "encrypt"
-  puts encrypt(password)
-elsif answer == "decrypt"
-  puts decrypt(password)
-else
-  puts "You didn't properly specify encrypt or decrypt"
+def askUser()
+  i = 0
+  while i == 0
+    puts "Would you like to encrypt or decrypt your password?"
+    answer = gets.chomp
+    if answer == "encrypt" || answer == "decrypt"
+      i += 1
+      puts "Enter your password"
+      password = gets.chomp
+      if answer == "encrypt"
+        puts encrypt(password)
+      elsif answer == "decrypt"
+        puts decrypt(password)
+      end
+    else
+      puts "Please enter 'encrypt' or 'decrypt'!"
+    end
+  end
 end
+
+askUser()
