@@ -26,3 +26,10 @@ elsif age != (2017 - birth_year)			#age is wrong
 else
 	puts "Results inconclusive."
 end
+
+puts "Results:"
+puts "Name: #{name}"
+puts "Age: #{age}"
+puts "Birth year: #{birth_year}"
+puts "Likes garlic: #{garlic}"
+puts "Health insurance: #{insurance}"
