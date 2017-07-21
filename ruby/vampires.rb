@@ -1,3 +1,6 @@
+puts "How many employees will be processed?"
+employees = gets.chomp.to_i
+
 puts "What is your name?"
 name = gets.chomp
 puts "How old are you?"
