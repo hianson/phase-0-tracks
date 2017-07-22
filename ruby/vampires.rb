@@ -1,3 +1,4 @@
+#Create method for employee survey to test for vampires
 def vampireTest()
 	vampire_result = ""
 	i = 0
@@ -43,6 +44,14 @@ def vampireTest()
 	end
 end
 
-puts "How many employees will be processed?"
-$employees = gets.chomp.to_i
-vampireTest()
+
+#Get number of surveys to run
+i = 0
+while i == 0
+	puts "How many employees will be processed?"
+	$employees = gets.chomp.to_i
+	if $employees > 0
+		vampireTest()
+		i += 1
+	end
+end
