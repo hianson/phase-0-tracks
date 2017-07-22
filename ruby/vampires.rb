@@ -34,8 +34,8 @@ def vampireTest()
 		garlic = gets.chomp
 		puts "Would you like to enroll in the company’s health insurance? (yes/no)"
 		insurance = gets.chomp
-				#check if age adds up or not
-		if age == (2017 - birth_year)			#age is right!
+				#Check if age adds up or not
+		if age == (2017 - birth_year)			#Age is right!
 			if garlic == "yes" || insurance == "yes"
 				if name == "Drake Cula" || name == "Tu Fang"
 					$vampire_result = "Definitely a vampire."
@@ -43,7 +43,7 @@ def vampireTest()
 					$vampire_result = "Probably not a vampire."
 				end
 			end
-		elsif age != (2017 - birth_year)	#age is wrong!
+		elsif age != (2017 - birth_year)	#Age is wrong!
 			if garlic == "no" && insurance == "no"
 				$vampire_result = "Almost certainly a vampire."
 			elsif garlic == "no" || insurance == "no"
@@ -52,9 +52,9 @@ def vampireTest()
 		else
 			$vampire_result = "Results inconclusive."
 		end
-				#run allergies method
+				#Run allergies method
 		allergies()
-				#print results at the end of the survey
+				#Print results at the end of the survey
 		puts "\nResults:"
 		puts "Name: #{name}"
 		puts "Age: #{age}"
