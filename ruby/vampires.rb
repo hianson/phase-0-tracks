@@ -67,6 +67,7 @@ allergies()
 		puts "#{$vampire_result}\n\n"
 		i += 1
 	end
+		puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 end
 
 #Get number of surveys to run
