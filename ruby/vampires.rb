@@ -8,6 +8,9 @@ def allergies()
     item = gets.chomp
     if item == "done"
       i += 1
+		elsif item == "sunshine"
+			vampire_result = "Probably a vampire."
+			i += 1
 		else
 	    $allergies << item
     end
@@ -61,7 +64,7 @@ def vampireTest()
 		puts "Likes garlic: #{garlic}"
 		puts "Health insurance: #{insurance}"
 		puts "Allergies: #{$allergies}"
-		puts "#{vampire_result}\n"
+		puts "#{vampire_result}\n\n"
 		i += 1
 	end
 end
