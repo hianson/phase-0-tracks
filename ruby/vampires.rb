@@ -17,7 +17,6 @@ def allergies()
     end
   end
 end
-
 		#Create method for employee survey to test for vampires
 def vampireTest()
 	$vampire_result = ""
@@ -67,7 +66,6 @@ def vampireTest()
 	end
 		puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 end
-
 		#Get number of surveys to run
 i = 0
 while i == 0
