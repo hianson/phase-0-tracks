@@ -1,16 +1,17 @@
 #Create a method which adds items to array until user is "done"
 def allergies()
   $allergies = Array.new
-  i = 0
+  j = 0
   puts "Please enter any allergies one at a time. Type \"done\" when finished."
-  while i == 0
+  while j == 0
     puts "Allergies: #{$allergies}"
     item = gets.chomp
     if item == "done"
-      i += 1
+      j += 1
 		elsif item == "sunshine"
-			vampire_result = "Probably a vampire."
-			i += 1
+	    $allergies << item
+			$vampire_result = "Probably a vampire."
+			j += 1
 		else
 	    $allergies << item
     end
@@ -19,7 +20,7 @@ end
 
 #Create method for employee survey to test for vampires
 def vampireTest()
-	vampire_result = ""
+	$vampire_result = ""
 	i = 0
 	while i != $employees
 		puts "Employee Survey ##{i + 1}:"
@@ -33,30 +34,29 @@ def vampireTest()
 		garlic = gets.chomp
 		puts "Would you like to enroll in the company’s health insurance? (yes/no)"
 		insurance = gets.chomp
-		#allergiesMethod
-		allergies()
-
-
-
-
-		if age == (2017 - birth_year)			#age is right
+					#run allergy method
+		#allergies()
+					#check if age adds up or not
+		if age == (2017 - birth_year)			#age is right!
 			if garlic == "yes" || insurance == "yes"
 				if name == "Drake Cula" || name == "Tu Fang"
-					vampire_result = "Definitely a vampire."
+					$vampire_result = "Definitely a vampire."
 				else
-					vampire_result = "Probably not a vampire."
+					$vampire_result = "Probably not a vampire."
 				end
 			end
-		elsif age != (2017 - birth_year)			#age is wrong
+		elsif age != (2017 - birth_year)	#age is wrong!
 			if garlic == "no" && insurance == "no"
-				vampire_result = "Almost certainly a vampire."
+				$vampire_result = "Almost certainly a vampire."
 			elsif garlic == "no" || insurance == "no"
 				vampire_result = "Probably a vampire."
 			end
 		else
-			vampire_result = "Results inconclusive."
+			$vampire_result = "Results inconclusive."
 		end
 
+allergies()
+				#print results at the end of the survey
 		puts "\nResults:"
 		puts "Name: #{name}"
 		puts "Age: #{age}"
@@ -64,11 +64,10 @@ def vampireTest()
 		puts "Likes garlic: #{garlic}"
 		puts "Health insurance: #{insurance}"
 		puts "Allergies: #{$allergies}"
-		puts "#{vampire_result}\n\n"
+		puts "#{$vampire_result}\n\n"
 		i += 1
 	end
 end
-
 
 #Get number of surveys to run
 i = 0
