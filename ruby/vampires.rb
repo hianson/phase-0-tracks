@@ -1,6 +1,26 @@
+#Create a method which adds items to array until user is "done"
+def allergies()
+  $allergies = Array.new
+  j = 0
+  puts "Please enter any allergies one at a time. Type \"done\" when finished."
+  while j == 0
+    puts "Allergies: #{$allergies}"
+    item = gets.chomp
+    if item == "done"
+      j += 1
+		elsif item == "sunshine"
+	    $allergies << item
+			$vampire_result = "Probably a vampire."
+			j += 1
+		else
+	    $allergies << item
+    end
+  end
+end
+
 #Create method for employee survey to test for vampires
 def vampireTest()
-	vampire_result = ""
+	$vampire_result = ""
 	i = 0
 	while i != $employees
 		puts "Employee Survey ##{i + 1}:"
@@ -14,36 +34,41 @@ def vampireTest()
 		garlic = gets.chomp
 		puts "Would you like to enroll in the company’s health insurance? (yes/no)"
 		insurance = gets.chomp
-
-		if age == (2017 - birth_year)			#age is right
+					#run allergy method
+		#allergies()
+					#check if age adds up or not
+		if age == (2017 - birth_year)			#age is right!
 			if garlic == "yes" || insurance == "yes"
 				if name == "Drake Cula" || name == "Tu Fang"
-					vampire_result = "Definitely a vampire."
+					$vampire_result = "Definitely a vampire."
 				else
-					vampire_result = "Probably not a vampire."
+					$vampire_result = "Probably not a vampire."
 				end
 			end
-		elsif age != (2017 - birth_year)			#age is wrong
+		elsif age != (2017 - birth_year)	#age is wrong!
 			if garlic == "no" && insurance == "no"
-				vampire_result = "Almost certainly a vampire."
+				$vampire_result = "Almost certainly a vampire."
 			elsif garlic == "no" || insurance == "no"
 				vampire_result = "Probably a vampire."
 			end
 		else
-			vampire_result = "Results inconclusive."
+			$vampire_result = "Results inconclusive."
 		end
 
-		puts "Results:"
+allergies()
+				#print results at the end of the survey
+		puts "\nResults:"
 		puts "Name: #{name}"
 		puts "Age: #{age}"
 		puts "Birth year: #{birth_year}"
 		puts "Likes garlic: #{garlic}"
 		puts "Health insurance: #{insurance}"
-		puts "#{vampire_result}"
+		puts "Allergies: #{$allergies}"
+		puts "#{$vampire_result}\n\n"
 		i += 1
 	end
+		puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 end
-
 
 #Get number of surveys to run
 i = 0
