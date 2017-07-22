@@ -1,3 +1,19 @@
+#Create a method which adds items to array until user is "done"
+def allergies()
+  $allergies = Array.new
+  i = 0
+  puts "Please enter any allergies one at a time. Type \"done\" when finished."
+  while i == 0
+    puts "Allergies: #{$allergies}"
+    item = gets.chomp
+    if item == "done"
+      i += 1
+		else
+	    $allergies << item
+    end
+  end
+end
+
 #Create method for employee survey to test for vampires
 def vampireTest()
 	vampire_result = ""
@@ -14,6 +30,11 @@ def vampireTest()
 		garlic = gets.chomp
 		puts "Would you like to enroll in the company’s health insurance? (yes/no)"
 		insurance = gets.chomp
+		#allergiesMethod
+		allergies()
+
+
+
 
 		if age == (2017 - birth_year)			#age is right
 			if garlic == "yes" || insurance == "yes"
@@ -33,13 +54,14 @@ def vampireTest()
 			vampire_result = "Results inconclusive."
 		end
 
-		puts "Results:"
+		puts "\nResults:"
 		puts "Name: #{name}"
 		puts "Age: #{age}"
 		puts "Birth year: #{birth_year}"
 		puts "Likes garlic: #{garlic}"
 		puts "Health insurance: #{insurance}"
-		puts "#{vampire_result}"
+		puts "Allergies: #{$allergies}"
+		puts "#{vampire_result}\n"
 		i += 1
 	end
 end
