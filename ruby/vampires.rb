@@ -1,4 +1,4 @@
-#Create a method which adds items to array until user is "done"
+		#Create a method which adds items to array until user is "done"
 def allergies()
   $allergies = Array.new
   j = 0
@@ -18,7 +18,7 @@ def allergies()
   end
 end
 
-#Create method for employee survey to test for vampires
+		#Create method for employee survey to test for vampires
 def vampireTest()
 	$vampire_result = ""
 	i = 0
@@ -34,9 +34,7 @@ def vampireTest()
 		garlic = gets.chomp
 		puts "Would you like to enroll in the company’s health insurance? (yes/no)"
 		insurance = gets.chomp
-					#run allergy method
-		#allergies()
-					#check if age adds up or not
+				#check if age adds up or not
 		if age == (2017 - birth_year)			#age is right!
 			if garlic == "yes" || insurance == "yes"
 				if name == "Drake Cula" || name == "Tu Fang"
@@ -54,8 +52,8 @@ def vampireTest()
 		else
 			$vampire_result = "Results inconclusive."
 		end
-
-allergies()
+				#run allergies method
+		allergies()
 				#print results at the end of the survey
 		puts "\nResults:"
 		puts "Name: #{name}"
@@ -70,7 +68,7 @@ allergies()
 		puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 end
 
-#Get number of surveys to run
+		#Get number of surveys to run
 i = 0
 while i == 0
 	puts "How many employees will be processed?"
