@@ -27,13 +27,27 @@ end
 
 # Write method to print client's details
 def print_details()
-	p $details
+	$details.each {|k, v| puts "#{k}: #{v}"}
 end
 
 # Write method to allow user to update hash
 def update_details
+	i = 0
+	while i == 0
 	puts "Enter a category to update its information (or enter 'skip' to quit)."
+	item = gets.chomp.to_sym
+		if $details.has_key?(item)
+			puts "Enter a new value for #{item}:"
+			value = gets.chomp
+			$details[item] = value
+			i += 1
+		end
+	end
+
 end
 
 client_details
+puts
 print_details
+puts
+update_details
