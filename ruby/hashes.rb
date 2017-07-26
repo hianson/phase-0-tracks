@@ -35,15 +35,19 @@ def update_details
 	i = 0
 	while i == 0
 	puts "Enter a category to update its information (or enter 'skip' to quit)."
-	item = gets.chomp.to_sym
-		if $details.has_key?(item)
+	item = gets.chomp
+		if item == "skip"
+		  print_details
+		  i += 1
+		elsif $details.has_key?(item.to_sym)
 			puts "Enter a new value for #{item}:"
 			value = gets.chomp
-			$details[item] = value
-			i += 1
+			$details.merge!("#{item}": value)
+			puts "#{item} has been updated with #{value}!"
+		else
+		  puts "Category doesn\'t exist!"
 		end
 	end
-
 end
 
 client_details
