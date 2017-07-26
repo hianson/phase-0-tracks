@@ -9,32 +9,30 @@
 
 # Write method to gather client's details
 def client_details()
-	$details_hash = {
-		name: nil,
-		age: nil,
-		children: nil,
-		decor_theme: nil,
-		color: nil,
-		pet_pref: nil
-	}
+	$details = {}
 
 	puts "Enter your name:"
-	$details_hash[:name] = gets.chomp.to_s
+	$details[:name] = gets.chomp.to_s
 	puts "Enter your age:"
-	$details_hash[:age] = gets.chomp.to_i
+	$details[:age] = gets.chomp.to_i
 	puts "Enter number of children:"
-	$details_hash[:children] = gets.chomp.to_i
+	$details[:children] = gets.chomp.to_i
 	puts "Enter a decor theme:"
-	$details_hash[:decor_theme] = gets.chomp.to_s
+	$details[:decor_theme] = gets.chomp.to_s
 	puts "Enter your favorite color:"
-	$details_hash[:color] = gets.chomp.to_s
+	$details[:color] = gets.chomp.to_s
 	puts "Enter your pet preference:"
-	$details_hash[:pet_pref] = gets.chomp.to_s
+	$details[:pet_pref] = gets.chomp.to_s
 end
 
 # Write method to print client's details
 def print_details()
-	p $details_hash
+	p $details
+end
+
+# Write method to allow user to update hash
+def update_details
+	puts "Enter a category to update its information (or enter 'skip' to quit)."
 end
 
 client_details
