@@ -1,3 +1,4 @@
+# Pseudocode:
 # Repeat for name, age, number of children, decor theme, color, pet preference:
 	# Ask user for information
 	# Store user's input (gets.chomp) in hash and convert to appropriate data type
@@ -42,7 +43,7 @@ def update_details
 		elsif $details.has_key?(item.to_sym)
 			puts "Enter a new value for #{item}:"
 			value = gets.chomp
-			$details.merge!("#{item}": value)
+			$details.merge!("#{item}": value) # Update hash with new value for key
 			puts "#{item} has been updated with #{value}!"
 		else
 		  puts "Category doesn\'t exist!"
