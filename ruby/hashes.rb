@@ -1,8 +1,8 @@
-# Prompt designer/user for all information
-# Convert user input to appropriate data type
-# Print information back to user once user has entered all questions
-# Allow user to update keys. Otherwise if "none", skip update
-# If user types "decor_theme", ask user for new value for that key, then update it
+# Repeat for age, number of children, decor theme, color, pet preference:
+	# Ask user for information
+	# Store user's input (gets.chomp) in variable and convert to appropriate data type
+# Print user's info back once all questions are answered
+# Allow user to update keys (puts "Update any values?")
+	# If user types a key, ask user for new value for that key, then update it
+	# Else if user types "none", skip update
 # Print latest version of hash and end program
-
-# Ask user for name, age, number of children, decor theme, color, pet preference
