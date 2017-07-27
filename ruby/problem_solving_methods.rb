@@ -7,19 +7,20 @@
 
 	arr = [69, 420, 1337, 80085]
 
-def search_array(arr, int)
-  #if int is found in arr
-    #return index of int
+	def search_array(arr, int)
+	  #if int is found in arr
+	    #return index of int
 
-    i = 0
-    while i < arr.length
-      # if int matches the position of loop
-      if int == arr[i]
-        # print the index of int
-        p i
-      end
-      i += 1
-    end
-end
+	    i = 0
+	    while i < arr.length
+	      # if int matches the item at the position of loop
+	      if int == arr[i]
+	        # print the index of int where the match occurred
+	        p i
+	      end
+	      i += 1
+	    end
+	    return nil
+	end
 
-search_array(arr, 1337)
+	search_array(arr, 1)
