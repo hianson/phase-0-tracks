@@ -31,7 +31,11 @@ def fib(n)
   i = 0
   while i < n - 2
     fib_term = fib_arr[-2] + fib_arr[-1]
-    p fib_arr << fib_term
+    fib_arr << fib_term
     i += 1
   end
+  return fib_arr
 end
+
+# Driver code
+fib(100)[-1] == 218922995834555169026
