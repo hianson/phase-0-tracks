@@ -44,4 +44,9 @@ fib(100)[-1] == 218922995834555169026
 # 2: There are many visualization tools which help with understanding algorithms!
 # 3: The number of sorting algos is overwhelming and is like seeing the Ruby documentation for data types for the first time. I know there a more options than I know what to do with right now but i'm confident i'll slowly be able to chisel out the algorithms' purposes. I'm looking forward to taking sorting algorithms piece-by-piece!
 # 4: Pseudocode Bubble sort:
-# 
+# Bubble sort should compare a loop index and switch places with an item if the loop index is bigger than that item
+
+# initialize loop
+# for each i:
+	# if i is greater than arr[i], switch places with it
+# return the sorted array
