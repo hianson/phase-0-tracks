@@ -23,8 +23,15 @@
 	search_array(arr, 1)
 
 # Release 1: Calculate Fibonacci Numbers
-# Method takes a number of Fibonacci terms to generate (1 argument)
-# Returns array of the terms
+# Method takes a number of Fibonacci terms to generate (1 argument), returns array of the terms
+#
 
-def fibonacci()
+def fib(n)
+  fib_arr = [0, 1]
+  i = 0
+  while i < n - 2
+    fib_term = fib_arr[-2] + fib_arr[-1]
+    p fib_arr << fib_term
+    i += 1
+  end
 end
