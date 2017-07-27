@@ -8,9 +8,6 @@
 	arr = [69, 420, 1337, 80085]
 
 	def search_array(arr, int)
-	  #if int is found in arr
-	    #return index of int
-
 	    i = 0
 	    while i < arr.length
 	      # if int matches the item at the position of loop
