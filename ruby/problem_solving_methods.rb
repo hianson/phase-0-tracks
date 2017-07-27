@@ -21,3 +21,10 @@
 	end
 
 	search_array(arr, 1)
+
+# Release 1: Calculate Fibonacci Numbers
+# Method takes a number of Fibonacci terms to generate (1 argument)
+# Returns array of the terms
+
+def fibonacci()
+end
