@@ -9,8 +9,8 @@
 
 def alias_manager(first_last)
 	last_first = first_last.split(" ").reverse.join(" ").downcase
-	vowels = "aeiou" #handle 'u' as edge case?
-	consonants = "bcdfghjklmnpqrstvwxyz" #handle 'z' as edge case?
+	vowels = "aeio" #handle 'u' as edge case
+	consonants = "bcdfghjklmnpqrstvwxy" #handle 'z' as edge case
 	i = 0
 	while i < last_first.length
 		#if [i] is vowel...
@@ -19,7 +19,14 @@ def alias_manager(first_last)
 	    vowel_index = vowels.index("#{last_first[i]}") + 1
 	    # change the old vowel in the string to the new one
 	    last_first[i] = vowels[vowel_index]
-
+    #else if [i] is a consonant...
+    elsif last_first[i].count("^#{consonants}").zero?
+      consonant_index = consonants.index("#{last_first[i]}") + 1
+      last_first[i] = consonants[consonant_index]
+    elsif last_first[i] == "u"
+      last_first[i] = "a"
+    elsif last_first[i] == "z"
+      last_first[i] = "b"
 		end
 		i += 1
 	end
@@ -27,4 +34,4 @@ def alias_manager(first_last)
 end
 
 
-alias_manager("Sgt Pippar")
+alias_manager("Sgt Pipparz")
