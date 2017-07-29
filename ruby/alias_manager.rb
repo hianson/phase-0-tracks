@@ -6,3 +6,9 @@
 # for each i:
 	# if vowel: +1 position of vowel array
 	# else if consonant: +1 position of consonant array
+
+	def alias_manager(first_last)
+		last_first = first_last.split(" ").reverse.join(" ")
+	end
+
+	p alias_manager("Sgt Pepperino")
