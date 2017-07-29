@@ -9,8 +9,8 @@
 
 def alias_manager(first_last)
 	last_first = first_last.split(" ").reverse.join(" ").downcase
-	vowels = "aeio" #handle 'u' as edge case
-	consonants = "bcdfghjklmnpqrstvwxy" #handle 'z' as edge case
+	vowels = "aeiou" #handle 'u' as edge case
+	consonants = "bcdfghjklmnpqrstvwxyz" #handle 'z' as edge case
 	i = 0
 	while i < last_first.length
 		#if [i] is vowel...
@@ -23,15 +23,16 @@ def alias_manager(first_last)
     elsif last_first[i].count("^#{consonants}").zero?
       consonant_index = consonants.index("#{last_first[i]}") + 1
       last_first[i] = consonants[consonant_index]
-    elsif last_first[i] == "u"
+    elsif last_first[i] == vowels[-1]
       last_first[i] = "a"
-    elsif last_first[i] == "z"
+    elsif last_first[i] == consonants[-1]
       last_first[i] = "b"
 		end
 		i += 1
 	end
-	p last_first
+	p last_first.split(" ").each {|word| word.capitalize!}.join(" ")
+
 end
 
-
-alias_manager("Sgt Pipparz")
+#returns true! :)
+alias_manager("Felicia Torres") == "Vussit Gimodoe"
