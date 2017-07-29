@@ -33,5 +33,12 @@ def alias_manager(first_last)
 	p last_first.split(" ").each {|word| word.capitalize!}.join(" ")
 end
 
-#returns true! :)
-alias_manager("Felicia Torres") == "Vussit Gimodoe"
+# user interface:
+first_last = nil
+loop do
+  puts "Enter a real name to return a fake name (type 'quit' to quit):"
+  first_last = gets.chomp
+  break if first_last == 'quit'
+  alias_manager(first_last)
+  puts
+end
