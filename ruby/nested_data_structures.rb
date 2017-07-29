@@ -40,3 +40,4 @@ tiny_zoo = {
 p tiny_zoo[:mammals][:species][:oryx][:food]
 p tiny_zoo[:mammals][:species][:panda][:colors]
 p tiny_zoo[:mammals][:species][:giraffe][:number]
+p tiny_zoo[:mammals][:species][:panda][:colors][1]
