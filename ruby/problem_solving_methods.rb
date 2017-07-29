@@ -48,5 +48,27 @@ fib(100)[-1] == 218922995834555169026
 
 # initialize loop
 # for each i:
-	# if i is greater than arr[i], switch places with it
+	# if i is greater than the next item arr[i + 1], switch places
 # return the sorted array
+
+def bubble_sort(arr)
+	# init loop
+	loop do
+		# set variable to know whether to break out of loop or not
+		swapped = false
+		# init loop length and variable i for each iteration
+		(arr.length - 1).times do |i|
+			if arr[i] > arr[i + 1]
+				# swap places if i > i + 1
+				arr[i], arr[i + 1] = arr[i + 1], arr[i]
+				# change variable or else i will break and will halt further swaps. swapped will stay false if no more swaps are necessary!
+				swapped = true
+			end
+		end
+		break if swapped == false
+	end
+	return arr
+end
+
+arr = [5, 1, 6, 2, 7, 3, 8, 4]
+p bubble_sort(arr)
