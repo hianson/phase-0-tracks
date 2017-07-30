@@ -10,15 +10,16 @@
 def alias_manager(first_last)
   $fake_name = ""
 	last_first = first_last.split(" ").reverse.join(" ").downcase
-	vowels = "aeiou" #handle 'u' as edge case
-	consonants = "bcdfghjklmnpqrstvwxyz" #handle 'z' as edge case
+	vowels = "aeiou"
+	consonants = "bcdfghjklmnpqrstvwxyz"
 	i = 0
 	while i < last_first.length
-		#if [i] is vowel...
+		# handle 'u' and 'z' as edge cases
     if last_first[i] == "u"
       last_first[i] = "a"
     elsif last_first[i] == "z"
       last_first[i] = "b"
+      # check if i is vowel
 	  elsif last_first[i].count("^#{vowels}").zero?
 	    # we gonna change the vowel so get vowel index!
 	    vowel_index = vowels.index("#{last_first[i]}") + 1
