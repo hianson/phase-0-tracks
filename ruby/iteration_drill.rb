@@ -12,14 +12,13 @@ zombie_apocalypse_supplies.each {|i| print i, "*"}
 # zombie_apocalypse_supplies using #each.
 # For instance: are boots in your list of supplies?
 # ----
-def check_supplies(find)
-  zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars", "shotgun", "compass", "CB radio", "batteries"]
-  zombie_apocalypse_supplies.each{ |i| p i + " found." if i == find}
+def check_supplies(zombie_apocalypse_supplies)
+  puts "Which item are you looking for?"
+  find = gets.chomp
+  zombie_apocalypse_supplies.each { |i| p i + " exists in the supply list!" if i == find}
 end
 
-puts "Which item are you looking for?"
-find = gets.chomp
-check_supplies(find)
+check_supplies(zombie_apocalypse_supplies)
 
 # 3. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
