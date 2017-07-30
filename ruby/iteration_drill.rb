@@ -25,6 +25,18 @@ check_supplies(zombie_apocalypse_supplies)
 # leaving only 5, using #each.
 # ----
 
+def only_five(zombie_apocalypse_supplies)
+  new_arr = []
+  zombie_apocalypse_supplies.each_with_index do |x, i|
+    if i < 5
+      new_arr << zombie_apocalypse_supplies[i]
+    end
+  end
+  p new_arr
+end
+
+only_five(zombie_apocalypse_supplies)
+
 # 4. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
 # and their supplies below. You should get rid of any duplicate items.
