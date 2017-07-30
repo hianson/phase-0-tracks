@@ -8,6 +8,7 @@
 	# else if consonant: +1 position of consonant array
 
 def alias_manager(first_last)
+  $fake_name = ""
 	last_first = first_last.split(" ").reverse.join(" ").downcase
 	vowels = "aeiou" #handle 'u' as edge case
 	consonants = "bcdfghjklmnpqrstvwxyz" #handle 'z' as edge case
@@ -30,15 +31,25 @@ def alias_manager(first_last)
 		end
 		i += 1
 	end
-	p last_first.split(" ").each {|word| word.capitalize!}.join(" ")
+	return $fake_name = last_first.split(" ").each {|word| word.capitalize!}.join(" ")
 end
 
-# user interface:
 first_last = nil
+results = {}
+# user interface:
 loop do
   puts "Enter a real name to return a fake name (type 'quit' to quit):"
   first_last = gets.chomp
-  break if first_last == 'quit'
+    if first_last == 'quit'
+      # print list of: "Vussit Gimodoe is actually Felicia Torres"
+      results.each do |k, v|
+        k = k.split(" ").each {|word| word.capitalize!}.join(" ")
+        puts "\"#{k}\"" + ' is actually ' + "\"#{v}\""
+      end
+    break
+    end
   alias_manager(first_last)
+  # hash[:item2] = 2
+  p results[first_last] = $fake_name
   puts
 end
