@@ -70,10 +70,14 @@ extinct_animals.each {|key, value| puts "#{key} - #{value} * " }
 # the year 2000, using #each.
 # ----
 
+extinct_animals.each {|key, value| puts "#{key} #{value}" if value < 2000}
+
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # using #each, so they accurately reflect what year the animal went extinct.
 # ----
+
+extinct_animals.each {|key, value| puts "#{key} - #{value + 3} *" }
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Build a method  using #each that checks if an animal is in the hash and returns true/false.
