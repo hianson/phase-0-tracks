@@ -50,7 +50,6 @@ loop do
     break
     end
   alias_manager(first_last)
-  # hash[:item2] = 2
   p results[first_last] = $fake_name
   puts
 end
