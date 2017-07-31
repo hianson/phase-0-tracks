@@ -12,15 +12,11 @@
 	puts "Would you like to enroll in the company's health insurance?"
 	insurance = gets.chomp.to_str.downcase
 
-age_right = nil
-wants_garlic = nil
-wants_insurance = nil
-result = nil
-
-# Calculate age being right if age matches year they were born
-# Current time - Year they were born = Age
 if had_birthday == 'n' || had_birthday == 'no'
   age += 1
 end
 
-p age
+age_right = age == Time.new.year - year
+likes_garlic = garlic == "y" || garlic == "yes"
+wants_insurance = insurance == "y" || insurance == "yes"
+result = nil
