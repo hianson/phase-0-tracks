@@ -5,18 +5,17 @@ def check_allergies()
   puts "Name any allergies, one at a time. Type 'done' when finished."
   until input == "done" || input == "sunshine"
     input = gets.chomp
-    if input != "done"
-      allergies_arr << input
-    end
     if input == "sunshine"
+      allergies_arr << input
       p "Probably a vampire."
+    elsif input == "done"
       break
+    else
+      allergies_arr << input
     end
   end
   return allergies_arr
 end
-
-check_allergies
 
 # Process Multiple Employees:
 puts "How many employees will be processed?"
@@ -48,27 +47,21 @@ employees.times do |i|
 
   if age_right && (likes_garlic || wants_insurance)
     result = "Probably not a vampire."
-  else
-  	result = "Results inconclusive."
   end
 
   if !age_right && (!likes_garlic || !wants_insurance)
     result = "Probably a vampire."
-  else
-  	result = "Results inconclusive."
   end
 
   if !age_right && !likes_garlic && !wants_insurance
     result = "Almost certainly a vampire."
-  else
-  	result = "Results inconclusive."
   end
 
   if name == "drake cula" || name == "tu fang"
     result = "Definitely a vampire."
-  else
-  	result = "Results inconclusive."
   end
+
+# check_allergies
 
   p result
 end
