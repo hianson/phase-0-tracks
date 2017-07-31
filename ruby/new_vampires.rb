@@ -1,6 +1,6 @@
 # Gather data
-# 	puts "What is your name?"
-# 	name = gets.chomp.to_str.downcase
+puts "What is your name?"
+name = gets.chomp.to_str.downcase
 puts "How old are you?"
 age = gets.chomp.to_i
 puts "What year were you born?"
@@ -22,19 +22,27 @@ wants_insurance = insurance == "y" || insurance == "yes"
 result = nil
 
 if age_right && (likes_garlic || wants_insurance)
-  puts "age is right, and either likes_garlic or wants_insurance is true"
   result = "Probably not a vampire."
+else
+	result = "Results inconclusive."
 end
 
 if !age_right && (!likes_garlic || !wants_insurance)
-  puts "age is wrong, and either likes_garlic or wants_insurance is false"
   result = "Probably a vampire."
+else
+	result = "Results inconclusive."
 end
 
 if !age_right && !likes_garlic && !wants_insurance
   result = "Almost certainly a vampire."
+else
+	result = "Results inconclusive."
 end
 
 if name == "drake cula" || name == "tu fang"
   result = "Definitely a vampire."
+else
+	result = "Results inconclusive."
 end
+
+p result
