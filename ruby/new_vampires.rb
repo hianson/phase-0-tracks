@@ -5,12 +5,18 @@ def check_allergies()
   puts "Name any allergies, one at a time. Type 'done' when finished."
   until input == "done" || input == "sunshine"
     input = gets.chomp
-      if input != "done"
+    if input != "done"
       allergies_arr << input
-      end
+    end
+    if input == "sunshine"
+      p "Probably a vampire."
+      break
+    end
   end
   return allergies_arr
 end
+
+check_allergies
 
 # Process Multiple Employees:
 puts "How many employees will be processed?"
