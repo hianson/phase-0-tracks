@@ -1,3 +1,17 @@
+# Check for Suspicious Allergies
+def check_allergies()
+  allergies_arr = []
+  input = nil
+  puts "Name any allergies, one at a time. Type 'done' when finished."
+  until input == "done" || input == "sunshine"
+    input = gets.chomp
+      if input != "done"
+      allergies_arr << input
+      end
+  end
+  return allergies_arr
+end
+
 # Process Multiple Employees:
 puts "How many employees will be processed?"
 employees = gets.chomp.to_i
