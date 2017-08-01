@@ -8,8 +8,7 @@ def check_allergies(result)
     if input == "sunshine"
       allergies_arr << input
       return true
-    end
-    if input == "done"
+    elsif input == "done"
       p allergies_arr
       break
     else
@@ -67,7 +66,6 @@ employees.times do |i|
 if check_allergies(result)
   result = "Probably a vampire."
 end
-
   p result
 end
 
