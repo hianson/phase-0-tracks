@@ -1,5 +1,5 @@
 # Check for Suspicious Allergies
-def check_allergies()
+def check_allergies(result)
   allergies_arr = []
   input = nil
   puts "Name any allergies, one at a time. Type 'done' when finished."
@@ -7,14 +7,15 @@ def check_allergies()
     input = gets.chomp
     if input == "sunshine"
       allergies_arr << input
-      p "Probably a vampire."
-    elsif input == "done"
+      return true
+    end
+    if input == "done"
+      p allergies_arr
       break
     else
       allergies_arr << input
     end
   end
-  return allergies_arr
 end
 
 # Process Multiple Employees:
@@ -47,6 +48,8 @@ employees.times do |i|
 
   if age_right && (likes_garlic || wants_insurance)
     result = "Probably not a vampire."
+  else
+    result = "Results inconclusive."
   end
 
   if !age_right && (!likes_garlic || !wants_insurance)
@@ -61,7 +64,11 @@ employees.times do |i|
     result = "Definitely a vampire."
   end
 
-# check_allergies
+if check_allergies(result)
+  result = "Probably a vampire."
+end
 
   p result
 end
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
