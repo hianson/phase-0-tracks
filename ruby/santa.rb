@@ -6,8 +6,8 @@ class Santa
 		@eye_color = eye_color
 		@name = nil
 		puts "Initializing Santa instance ..."
-		age = 0
-		reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+		@age = 0
+		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 	end
 
 	def about()
@@ -24,6 +24,42 @@ class Santa
 	def eat_milk_and_cookies(cookie_type)
 		puts "That was a good #{cookie_type}!"
 	end
+
+	def get_mad_at(reindeer)
+		puts "Got mad at #{reindeer}!"
+		@reindeer_ranking.delete(reindeer)
+		@reindeer_ranking.push(reindeer)
+		@reindeer_ranking
+	end
+
+	def celebrate_birthday()
+		puts "Happy bday!"
+		@age += 1
+	end
+
+	# Getter methods (make readable)
+	def gender?
+		@gender
+	end
+
+	def age?
+		@age
+	end
+
+	def ethnicity?
+		@ethnicity
+	end
+
+	def reindeer_ranking?
+		puts "Current reindeer rankings:"
+		@reindeer_ranking
+	end
+
+# Setter methods (make writable)
+def gender=(new_gender)
+	puts "Changed gender from #{@gender} to #{new_gender}!"
+	@gender = new_gender
+end
 
 end
 
@@ -56,4 +92,14 @@ end
 # puts "#{santas[0]} says:"
 # puts santas[0].speak
 
-santas[4].about
+p santas[4].age?
+p santas[4].celebrate_birthday
+p santas[4].age?
+
+p santas[4].reindeer_ranking?
+p santas[4].get_mad_at("Vixen")
+
+p santas[4].gender?
+p santas[4].gender = "polygenerous"
+
+p santas[4].ethnicity?
