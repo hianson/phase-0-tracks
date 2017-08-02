@@ -1,5 +1,6 @@
 class Santa
-	attr_accessor :gender, :ethnicity, :age, :reindeer_ranking
+	attr_reader :reindeer_ranking
+	attr_accessor :gender, :ethnicity, :age
 
 	def initialize(gender, ethnicity, eye_color)
 		@gender = gender
