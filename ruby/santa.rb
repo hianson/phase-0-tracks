@@ -2,7 +2,7 @@ class Santa
 	attr_reader :reindeer_ranking
 	attr_accessor :gender, :ethnicity, :age, :name
 
-	def initialize(age, gender, ethnicity, eye_color)
+	def initialize(name, age, gender, ethnicity, eye_color)
 		puts "Initializing Santa instance ..."
 		@gender = gender
 		@ethnicity = ethnicity
@@ -88,7 +88,7 @@ end
 # Use loop do to create 100 Santa instances
 santa_arr = []
 1000.times do |i|
-	santa_arr << Santa.new(rand(0..140), example_genders.sample, example_ethnicities.sample, eye_color.sample)
+	santa_arr << Santa.new(name_generator, rand(0..140), example_genders.sample, example_ethnicities.sample, eye_color.sample)
 end
 
 santa_arr[0].name = "The Real Song Singing Santa"
@@ -96,4 +96,5 @@ santa_arr[0].name = "The Real Song Singing Santa"
 santa_arr.length.times do |i|
 	puts "Santa ##{i}:"
 	santa_arr[i].about
+	puts
 end
