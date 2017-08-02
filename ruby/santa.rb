@@ -1,22 +1,23 @@
 class Santa
 	attr_reader :reindeer_ranking
-	attr_accessor :gender, :ethnicity, :age
+	attr_accessor :gender, :ethnicity, :age, :name
 
-	def initialize(gender, ethnicity, eye_color)
+	def initialize(age, gender, ethnicity, eye_color)
+		puts "Initializing Santa instance ..."
 		@gender = gender
 		@ethnicity = ethnicity
 		@eye_color = eye_color
-		@name = nil
-		puts "Initializing Santa instance ..."
-		@age = 0
+		@name = name
+		@age = age
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 	end
 
 	def about()
+		p "Name: #{@name}"
+		p "Age: #{@age}"
 		p "Gender: #{@gender}"
 		p "Ethnicity: #{@ethnicity}"
 		p "Eye color: #{@eye_color}"
-		p "Name: #{@name}"
 	end
 
 	def speak()
@@ -51,33 +52,48 @@ end
 # santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 # santas << Santa.new("N/A", "N/A")
 
-santas = []
+# santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 eye_color = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-example_genders.length.times do |i|
-  santas << Santa.new(example_genders[i], example_ethnicities[i], eye_color[i])
+# example_genders.length.times do |i|
+#   santas << Santa.new(example_genders[i], example_ethnicities[i], eye_color[i])
+# end
+
+# Totally Random Name generator
+def name_generator()
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	new_name = ""
+	# Pick a random name length:
+	new_name_length = rand(3..9)
+	new_name_length.times do |i|
+	  new_name += alphabet.split("").sample
+	end
+	return new_name.capitalize
 end
 
-# santas.each do |santa|
-# 	Santa.speak
-# end
+# p santas[4].age
+# p santas[4].celebrate_birthday
+# p santas[4].age
+#
+# p santas[4].reindeer_ranking
+# p santas[4].get_mad_at("Vixen")
+#
+# p santas[4].gender
+# p santas[4].gender = "polygenerous"
+#
+# p santas[4].ethnicity
 
-# santas.each do |i|
-# 	Santa.about()
-# end
-# santas[0] << name = "Santy"
-# puts "#{santas[0]} says:"
-# puts santas[0].speak
+# Release 4: Build Many, Many Santas
+# Use loop do to create 100 Santa instances
+santa_arr = []
+1000.times do |i|
+	santa_arr << Santa.new(rand(0..140), example_genders.sample, example_ethnicities.sample, eye_color.sample)
+end
 
-p santas[4].age
-p santas[4].celebrate_birthday
-p santas[4].age
+santa_arr[0].name = "The Real Song Singing Santa"
 
-p santas[4].reindeer_ranking
-p santas[4].get_mad_at("Vixen")
-
-p santas[4].gender
-p santas[4].gender = "polygenerous"
-
-p santas[4].ethnicity
+santa_arr.length.times do |i|
+	puts "Santa ##{i}:"
+	santa_arr[i].about
+end
