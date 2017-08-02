@@ -11,5 +11,9 @@ class Santa
 	def eat_milk_and_cookies(cookie_type)
 		puts "That was a good #{cookie_type}!"
 	end
-	
+
 end
+
+# Driver code
+testSanta = Santa.new
+testSanta.speak
