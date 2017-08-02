@@ -1,11 +1,20 @@
 class Santa
 
-	def initialize(gender, ethnicity)
+	def initialize(gender, ethnicity, eye_color)
+		@gender = gender
+		@ethnicity = ethnicity
+		@eye_color = eye_color
+		@name = nil
 		puts "Initializing Santa instance ..."
-		gender = @gender
-		ethnicity = @ethnicity
 		age = 0
 		reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+	end
+
+	def about()
+		p "Gender: #{@gender}"
+		p "Ethnicity: #{@ethnicity}"
+		p "Eye color: #{@eye_color}"
+		p "Name: #{@name}"
 	end
 
 	def speak()
@@ -31,6 +40,20 @@ end
 santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+eye_color = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 example_genders.length.times do |i|
-  santas << Santa.new(example_genders[i], example_ethnicities[i])
+  santas << Santa.new(example_genders[i], example_ethnicities[i], eye_color[i])
 end
+
+# santas.each do |santa|
+# 	Santa.speak
+# end
+
+# santas.each do |i|
+# 	Santa.about()
+# end
+# santas[0] << name = "Santy"
+# puts "#{santas[0]} says:"
+# puts santas[0].speak
+
+santas[4].about
