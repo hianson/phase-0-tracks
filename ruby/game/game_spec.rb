@@ -9,10 +9,11 @@
 
 # our game should ...
 # allow user 1 to enter a word and save it as a variable
-# allow user 2 to enter (guess) a word which matches user 1's word
+# split user 1's word into an array of letters
+# allow user 2 to enter (guess) a letter which matches letters in user 1's word
 # use an array to keep track of which letters user 2 has guessed
-# see if user 2's guess matches user 1's word
-# have a variable which keeps track of user 2's guess count (repeated guesses don't count)
+# see if user 2's letter matches any letters in user 1's word
+# have variables which keeps track of user 2's letter guesses and guess count (repeated guesses don't count)
 # print the current state of user 2's guesses unicorn : _ _ _ c _ _ _
 # print a congrats message for winning, and taunt message for losing
 
@@ -31,8 +32,12 @@ describe Game do
 		expect(game.enter_word()).to eq "test"
 	end
 
-	it "allows user 2 to enter a word which matches user 1's word" do
+	it "splits user 1's word into an array of letters" do
+			
+	end
 
+	it "allows user 2 to enter a letter which matches letters in user 1's word" do
+		expect(game.)
 	end
 
 	it "uses an array to keep track of which letters user 2 has guessed" do
@@ -41,7 +46,7 @@ describe Game do
 	it "sees if user 2's guess matches user 1's word" do
 	end
 
-	it "has a variable which keeps track of user 2's guess count (repeated guesses don't count)" do
+	it "has variables which keeps track of user 2's letter guesses and guess count (repeated guesses don't count)" do
 	end
 
 	it "prints the current state of user 2's guesses" do
