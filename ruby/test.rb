@@ -1,21 +1,8 @@
-def test(arr)
-  i = 0
-	swapped = false
-  while i < arr.length - 1
-		if swapped == false
-	    if arr[i].to_i > arr[i + 1].to_i
-	      arr[i], arr[i + 1] = arr[i + 1], arr[i]
-				swapped = true
-	    end
-			i += 1
-		end
-    i += 1
-  end
-  p arr
-end
+# 6.7 Solo Challenge
 
-# [3, 2, 1]
-# [2, 3, 1]
-
-arr = [3, 2, 1]
-test(arr)
+# User can enter a word (or phrase) and another user attempts to guess that word
+# Guesses are limited, max guesses are related to length of word
+# Repeated guesses don't count (store previous guesses in array)
+# Guesser gets continual feedback on state of word:
+	# unicorn : _ _ _ c _ _ _
+# Give congrats for winning or taunting message for losing
