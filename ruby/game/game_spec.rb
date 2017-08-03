@@ -26,7 +26,7 @@ require_relative 'game'
 describe Game do
 	it "allows user 1 to enter a word and save it as a variable" do
 		game = Game.new
-		expect(game.enter_word()).to eq true
+		expect(game.enter_word()).to eq "test"
 	end
 
 	it "allows user 2 to enter a word which matches user 1's word" do
