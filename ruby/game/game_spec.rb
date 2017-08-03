@@ -8,7 +8,7 @@
 # Give congrats for winning or taunting message for losing
 
 # our game should ...
-# allow user 1 to enter a word
+# allow user 1 to enter a word and save it as a variable
 # allow user 2 to enter (guess) a word which matches user 1's word
 # use an array to keep track of which letters user 2 has guessed
 # see if user 2's guess matches user 1's word
@@ -24,7 +24,9 @@
 require_relative 'game'
 
 describe Game do
-	it "allows user 1 to enter a word" do
+	it "allows user 1 to enter a word and save it as a variable" do
+		game = Game.new
+		expect(game.enter_word()).to eq true
 	end
 
 	it "allows user 2 to enter a word which matches user 1's word" do
