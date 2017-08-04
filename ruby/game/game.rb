@@ -3,7 +3,8 @@ class Game
 	attr_accessor :goal_word
 
 	def initialize
-		@goal_word = goal_word
+		# unicorn placeholder
+		@goal_word = "unicorn"
 	end
 
 	def enter_word(word)
@@ -12,7 +13,24 @@ class Game
 	end
 
 	def max_guesses?(n)
-		max_guesses = "string".length
+		max_guesses = @goal_word.length
+	end
+
+	def guess_state()
+		guess_state = []
+	end
+
+	def store_guesses()
+		guess_arr = []
+	end
+
+	def check_guess(letter)
+		check_arr = @goal_word.split("")
+		if check_arr.include?(letter)
+			return true
+		else
+			return false
+		end
 	end
 
 end

@@ -25,14 +25,29 @@ require_relative 'game'
 
 describe Game do
 	let(:game) { Game.new }
+	let(:@goal_word) { "unicorn" }
 
 	it "Enter a string" do
 		# game = Game.new
 		expect(game.enter_word(@goal_word)).to be_a(String)
 	end
 
-	it "Get max guesses" do
+	it "Gets max guesses" do
 		expect(game.max_guesses?(@goal_word)).to be_a(Integer)
+	end
+
+	it "Creates an array" do
+		expect(game.guess_state()).to be_a(Array)
+	end
+
+	it "Lets user store guesses" do
+		expect(game.store_guesses()).to be_a(Array)
+	end
+
+	it "Checks if a letter exists in other array" do
+		# Example guess 'u'
+		letter = "u"
+		expect(game.check_guess(letter)).to eq true
 	end
 
 end
