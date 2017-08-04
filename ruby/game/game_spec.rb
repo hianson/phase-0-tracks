@@ -26,6 +26,7 @@ require_relative 'game'
 describe Game do
 	let(:game) { Game.new }
 	let(:@goal_word) { "unicorn" }
+	let(:letter) { "u" }
 
 	it "Enter a string" do
 		# game = Game.new
@@ -41,8 +42,11 @@ describe Game do
 		expect(game.guess_state()).to eq ["_ _ _ _ _ _ _"]
 	end
 
-	it "Lets user store guesses" do
-		expect(game.store_guesses()).to be_a(Array)
+	it "Stores guesses" do
+		expect(game.store_guess(letter)).to be_a(Array)
+		expect(game.store_guess(letter)).to eq ["u"]
+		expect(game.store_guess(letter)).not_to eq ["a"]
+		expect(game.store_guess(letter)).not_to eq []
 	end
 
 	it "Checks if a letter exists in other array" do

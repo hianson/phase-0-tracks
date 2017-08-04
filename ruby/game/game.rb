@@ -1,6 +1,6 @@
 # CLASS DECLARATION
 class Game
-	attr_accessor :goal_word :current_guess_state
+	attr_accessor :goal_word, :guess_arr
 
 	def initialize
 		# unicorn placeholder
@@ -21,8 +21,9 @@ class Game
 		guess_state << "_ " * (@goal_word.length - 1) + "_"
 	end
 
-	def store_guesses()
-		guess_arr = []
+	def store_guess(letter)
+		@guess_arr = []
+		@guess_arr << letter
 	end
 
 	def check_guess(letter)
