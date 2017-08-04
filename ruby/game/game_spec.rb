@@ -28,12 +28,11 @@ describe Game do
 
 	it "Enter a string" do
 		# game = Game.new
-		expect(game.enter_word("string")).to be_a(String)
+		expect(game.enter_word(@goal_word)).to be_a(String)
 	end
 
-	# it "limits number of guesses" do
-	# 	@goal_word = "test"
-	# 	expect(game.max_guesses?(@goal_word)).to eq 4
-	# end
+	it "Get max guesses" do
+		expect(game.max_guesses?(@goal_word)).to be_a(Integer)
+	end
 
 end
