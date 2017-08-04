@@ -38,6 +38,7 @@ describe Game do
 
 	it "Creates an array" do
 		expect(game.guess_state()).to be_a(Array)
+		expect(game.guess_state()).to eq ["_ _ _ _ _ _ _"]
 	end
 
 	it "Lets user store guesses" do
