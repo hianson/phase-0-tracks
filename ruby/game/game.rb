@@ -6,15 +6,15 @@ class Game
 		@goal_word = goal_word
 	end
 
-	def enter_word()
-		# Placehold for gets.chomp
-		@goal_word = "test"
+	def enter_word(word)
+		# Placeholder for gets.chomp
+		word = "string"
 	end
 
-	def max_guesses?(word)
-		max_guesses = "test".length
-		return max_guesses
-	end
+	# def max_guesses?(word)
+	# 	max_guesses = "test".length
+	# 	return max_guesses
+	# end
 
 end
 

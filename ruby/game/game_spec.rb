@@ -8,7 +8,7 @@
 # Give congrats for winning or taunting message for losing
 
 # our game should ...
-# Take a string (goal_word)
+# Enter a string (goal_word)
 # Get max_guesses as goal_word.length
 # Create a guess_state - an array of underscores based on goal_word.length
 # Let user guess a letter, and store it in an array of guesses
@@ -25,17 +25,15 @@ require_relative 'game'
 
 describe Game do
 	let(:game) { Game.new }
-	let(:@goal_word) { "test" }
 
-	it "allows user 1 to enter a word and save it as a variable" do
+	it "Enter a string" do
 		# game = Game.new
-		@goal_word = "test"
-		expect(game.enter_word()).to should be_a(String)
+		expect(game.enter_word("string")).to be_a(String)
 	end
 
-	it "limits number of guesses" do
-		@goal_word = "test"
-		expect(game.max_guesses?(@goal_word)).to eq 4
-	end
+	# it "limits number of guesses" do
+	# 	@goal_word = "test"
+	# 	expect(game.max_guesses?(@goal_word)).to eq 4
+	# end
 
 end
