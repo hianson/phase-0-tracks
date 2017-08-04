@@ -27,8 +27,8 @@ class Game
 	end
 
 	def check_guess(letter)
-		check_arr = @goal_word.split("")
-		if check_arr.include?(letter)
+		array_to_check = @goal_word.split("")
+		if array_to_check.include?(letter)
 			return true
 		else
 			return false

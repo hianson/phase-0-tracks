@@ -49,10 +49,9 @@ describe Game do
 		expect(game.store_guess(letter)).not_to eq []
 	end
 
-	it "Checks if a letter exists in other array" do
-		# Example guess 'u'
-		letter = "u"
+	it "Checks if a letter exists in another array" do
 		expect(game.check_guess(letter)).to eq true
+		expect(game.check_guess("a")).to eq false
 	end
 
 end
