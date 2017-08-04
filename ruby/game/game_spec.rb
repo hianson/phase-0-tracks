@@ -33,8 +33,8 @@ describe Game do
 		expect(game.enter_word(@goal_word)).to be_a(String)
 	end
 
-	it "Gets max guesses" do
-		expect(game.max_guesses?(@goal_word)).to be_a(Integer)
+	it "Gets guess limit" do
+		expect(game.guess_limit(@goal_word)).to be_a(Integer)
 	end
 
 	it "Creates an array" do
@@ -52,6 +52,11 @@ describe Game do
 	it "Checks if a letter exists in another array" do
 		expect(game.check_guess(letter)).to eq true
 		expect(game.check_guess("a")).to eq false
+	end
+
+	it "Checks if user exceeds max guess attempts" do
+		@guess_count = 10
+		expect(game.over_guess_limit?(@guess_count)).to eq true
 	end
 
 end
