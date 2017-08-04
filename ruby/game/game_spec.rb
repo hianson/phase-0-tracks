@@ -57,6 +57,8 @@ describe Game do
 	it "Checks if user exceeds max guess attempts" do
 		@guess_count = 10
 		expect(game.over_guess_limit?(@guess_count)).to eq true
+		expect(game.over_guess_limit?("unicorn".length + 1)).to eq true
+		expect(game.over_guess_limit?("unicorn".length - 1)).to eq false
 	end
 
 end
