@@ -8,14 +8,13 @@
 # Give congrats for winning or taunting message for losing
 
 # our game should ...
-# allow user 1 to enter a word and save it as a variable
-# split user 1's word into an array of letters
-# allow user 2 to enter (guess) a letter which matches letters in user 1's word
-# use an array to keep track of which letters user 2 has guessed
-# see if user 2's letter matches any letters in user 1's word
-# have variables which keeps track of user 2's letter guesses and guess count (repeated guesses don't count)
-# print the current state of user 2's guesses unicorn : _ _ _ c _ _ _
-# print a congrats message for winning, and taunt message for losing
+# Take a string (goal_word)
+# Get max_guesses as goal_word.length
+# Create a guess_state - an array of underscores based on goal_word.length
+# Let user guess a letter, and store it in an array of guesses
+# Check if user's letter guess matches with goal_word
+# Check if user has exceeded guess attempts
+# Print congratulations for winning and a taunt for losing
 
 # RSpec
 # 'describe' block for each group of tests
@@ -26,32 +25,17 @@ require_relative 'game'
 
 describe Game do
 	let(:game) { Game.new }
+	let(:@goal_word) { "test" }
 
 	it "allows user 1 to enter a word and save it as a variable" do
 		# game = Game.new
-		expect(game.enter_word()).to eq "test"
+		@goal_word = "test"
+		expect(game.enter_word()).to should be_a(String)
 	end
 
-	it "splits user 1's word into an array of letters" do
-			
+	it "limits number of guesses" do
+		@goal_word = "test"
+		expect(game.max_guesses?(@goal_word)).to eq 4
 	end
 
-	it "allows user 2 to enter a letter which matches letters in user 1's word" do
-		expect(game.)
-	end
-
-	it "uses an array to keep track of which letters user 2 has guessed" do
-	end
-
-	it "sees if user 2's guess matches user 1's word" do
-	end
-
-	it "has variables which keeps track of user 2's letter guesses and guess count (repeated guesses don't count)" do
-	end
-
-	it "prints the current state of user 2's guesses" do
-	end
-
-	it "prints a congratulations or taunt message for winning or losing" do
-	end
 end
