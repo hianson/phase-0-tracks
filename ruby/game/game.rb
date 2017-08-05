@@ -34,7 +34,6 @@ class Game
 			puts "You win!"
 		end
 		p state.join(' ')
-		puts
 	end
 
 
