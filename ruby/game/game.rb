@@ -23,6 +23,7 @@ class Game
 
 
 
+
 	# def enter_word(word)
 	# 	# Placeholder for gets.chomp
 	# 	@goal_word = "unicorn"

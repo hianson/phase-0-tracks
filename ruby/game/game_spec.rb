@@ -26,6 +26,10 @@ describe Game do
 		expect(game.check_letter(letter)).to eq true
 	end
 
+	it "prints game state after each guess" do
+		expect(game.check_game_state()).to be_a(String)
+	end
+
 	# it "Gets guess limit" do
 	# 	expect(game.guess_limit(@goal_word)).to be_a(Integer)
 	# end
