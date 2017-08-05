@@ -22,9 +22,8 @@ describe Game do
 	let(:@goal_word) { "unicorn" }
 	let(:letter) { "u" }
 
-	it "Checks if a guess was repeated" do
-		# game = Game.new
-		expect(game.check_letter).to be_a(String)
+	it "checks if a guess was repeated" do
+		expect(game.check_letter(letter)).to eq true
 	end
 
 	# it "Gets guess limit" do

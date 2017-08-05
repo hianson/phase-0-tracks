@@ -4,8 +4,7 @@ class Game
   attr_accessor :secret_word, :guess_count, :is_over
 
 	def initialize
-		# unicorn placeholder
-		@secret_word = word.downcase
+		@secret_word = "test".downcase
     @guess_limit = @secret_word.length * 2
     @guess_count = 0
     @guess_arr = []
@@ -13,8 +12,16 @@ class Game
 	end
 
 	def check_letter(letter)
-
+		@guess_arr = [letter]
+		if @guess_arr.include?(letter)
+			return true
+		else
+			return false
+		end
+		p @guess_arr
 	end
+
+
 
 	# def enter_word(word)
 	# 	# Placeholder for gets.chomp
