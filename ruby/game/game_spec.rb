@@ -1,20 +1,14 @@
 # 6.7 Solo Challenge
 
-# User can enter a word (or phrase) and another user attempts to guess that word
-# Guesses are limited, max guesses are related to length of word
-# Repeated guesses don't count (store previous guesses in array)
-# Guesser gets continual feedback on state of word:
-	# unicorn : _ _ _ c _ _ _
-# Give congrats for winning or taunting message for losing
-
-# our game should ...
-# Enter a string (goal_word)
-# Get max_guesses as goal_word.length
-# Create a guess_state - an array of underscores based on goal_word.length
-# Let user guess a letter, and store it in an array of guesses
-# Check if user's letter guess matches with goal_word
-# Check if user has exceeded guess attempts
-# Print congratulations for winning and a taunt for losing
+# Methods in game will allow us to:
+# Initialize word game with variables for:
+	# secret_word, guess_limit, guess_count, guess_arr, is_over
+# Check if a guess was repeated so it won't count against the user
+	# Print previous guesses after each guess
+# Give continual feedback after each guess
+	# If all letters are guessed correctly, print congratulatory message
+# Check if user has lost after each guess if guess_count >= guess_limit
+	# Print taunt message for losing
 
 # RSpec
 # 'describe' block for each group of tests
@@ -37,10 +31,10 @@ describe Game do
 		expect(game.guess_limit(@goal_word)).to be_a(Integer)
 	end
 
-	it "Creates an array" do
-		expect(game.guess_state()).to be_a(Array)
-		expect(game.guess_state()).to eq ["_ _ _ _ _ _ _"]
-	end
+	# it "Creates an array" do
+	# 	expect(game.guess_state()).to be_a(Array)
+	# 	expect(game.guess_state()).to eq ["_ _ _ _ _ _ _"]
+	# end
 
 	it "Stores guesses" do
 		expect(game.store_guess(letter)).to be_a(Array)
@@ -54,11 +48,21 @@ describe Game do
 		expect(game.check_guess("a")).to eq false
 	end
 
-	it "Checks if user exceeds max guess attempts" do
+	it "Updates game state when letter is guessed correctly" do
+		expect(game.update_game_state(letter)).to eq true
+	end
+
+	# Write RSpec HERE to update array if guess is correct
+
+	it "Checks if user exceeds max guess attempts (player loses)" do
 		@guess_count = 10
 		expect(game.over_guess_limit?(@guess_count)).to eq true
 		expect(game.over_guess_limit?("unicorn".length + 1)).to eq true
 		expect(game.over_guess_limit?("unicorn".length - 1)).to eq false
 	end
+
+	# it "Prints ending game message" do
+	# 	expect(game.win()).to eq true
+	# end
 
 end

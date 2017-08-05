@@ -1,26 +1,28 @@
 # CLASS DECLARATION
 class Game
-	attr_accessor :goal_word, :guess_arr, :guess_limit, :guess_count
+	attr_accessor :goal_word, :guess_arr, :guess_limit, :guess_count, :game_state
 
 	def initialize
 		# unicorn placeholder
 		@goal_word = "unicorn"
 		@guess_count = 0
+		@game_state = []
 	end
 
 	def enter_word(word)
 		# Placeholder for gets.chomp
-		@goal_word = "string"
+		@goal_word = "unicorn"
 	end
 
 	def guess_limit(n)
 		guess_limit = @goal_word.length
 	end
 
-	def guess_state()
-		guess_state = []
-		guess_state << "_ " * (@goal_word.length - 1) + "_"
-	end
+	# def guess_state()
+	# 	# Create an array of underscores _ equal to @goal_word.length
+	# 	guess_state = []
+	# 	guess_state << "_" * (@goal_word.length - 1) + "_"
+	# end
 
 	def store_guess(letter)
 		@guess_arr = []
@@ -36,16 +38,30 @@ class Game
 		end
 	end
 
+	def update_game_state(letter)
+		# Loop through game_state and replace _ with letter
+		@game_state.each do |i|
+
+		end
+		# Delete item at index game_state.delete_at(2)
+		@game_state.delete_at(index)
+		# Add letter to the same index in game_state
+	end
+
 	def over_guess_limit?(guess_count)
 		guess_limit = @goal_word.length
 		if guess_count > guess_limit
-			# Player loses
+			# Game over - player loses, print taunt message
 			return true
 		else
-			# Player wins
+			# Game continues
 			return false
 		end
 	end
+
+	# def game_over()
+	#
+	# end
 
 end
 
