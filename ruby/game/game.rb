@@ -21,7 +21,21 @@ class Game
 		p @guess_arr
 	end
 
-
+	def check_game_state
+		state = @secret_word.chars.map do |i|
+			if @guess_arr.include?(i) == true
+				i
+			else
+				"_"
+			end
+		end
+		if !state.include?("_")
+			@is_over = true
+			puts "You win!"
+		end
+		p state.join(' ')
+		puts
+	end
 
 
 	# def enter_word(word)
