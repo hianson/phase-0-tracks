@@ -4,9 +4,11 @@ class Game
 
 	def initialize
 		# unicorn placeholder
-		@goal_word = "unicorn"
-		@guess_count = 0
-		@game_state = []
+		@secret_word = word.downcase
+    @guess_limit = @secret_word.length * 2
+    @guess_count = 0
+    @guess_arr = []
+    @is_over = false
 	end
 
 	def enter_word(word)
@@ -29,7 +31,7 @@ class Game
 		@guess_arr << letter
 	end
 
-	def check_guess(letter)
+	def check_letter(letter)
 		array_to_check = @goal_word.split("")
 		if array_to_check.include?(letter)
 			return true

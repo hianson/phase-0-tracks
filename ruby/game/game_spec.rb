@@ -22,9 +22,9 @@ describe Game do
 	let(:@goal_word) { "unicorn" }
 	let(:letter) { "u" }
 
-	it "Enter a string" do
+	it "Checks if a guess was repeated" do
 		# game = Game.new
-		expect(game.enter_word(@goal_word)).to be_a(String)
+		expect(game.check_letter).to be_a(String)
 	end
 
 	it "Gets guess limit" do
@@ -48,9 +48,9 @@ describe Game do
 		expect(game.check_guess("a")).to eq false
 	end
 
-	it "Updates game state when letter is guessed correctly" do
-		expect(game.update_game_state(letter)).to eq true
-	end
+	# it "Updates game state when letter is guessed correctly" do
+	# 	expect(game.update_game_state(letter)).to eq true
+	# end
 
 	# Write RSpec HERE to update array if guess is correct
 
