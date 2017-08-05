@@ -1,6 +1,7 @@
 # CLASS DECLARATION
 class Game
-	attr_accessor :goal_word, :guess_arr, :guess_limit, :guess_count, :game_state
+	attr_reader :guess_limit
+  attr_accessor :secret_word, :guess_count, :is_over
 
 	def initialize
 		# unicorn placeholder
@@ -9,6 +10,10 @@ class Game
     @guess_count = 0
     @guess_arr = []
     @is_over = false
+	end
+
+	def check_letter(letter)
+
 	end
 
 	# def enter_word(word)
