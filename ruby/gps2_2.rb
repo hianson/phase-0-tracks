@@ -3,12 +3,12 @@
 # Method to create a list create_list(items)
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps:
-# 	create new hash = {}
-#   split string into separate items using .split(" ")
+# 	create new hash
+#   split string into separate items
 # 	iterate over each item in the array
 # 	add each key to a hash
-#   set default quantity to 1
-#   print the list to the console [print_list()]
+#   set default quantity of each key to 1
+#   print the list to the console
 # output: hash
 
 grocery_list = {}
@@ -18,10 +18,9 @@ def create_list(items, grocery_list)
 	item_arr.each do |item|
 		grocery_list[item] = 1
 	end
-	p grocery_list
 end
 
-create_list("carrots apples cereal pizza", grocery_list)
+# create_list("carrots apples cereal pizza", grocery_list)
 
 
 # Method to add an item to a list
@@ -34,7 +33,7 @@ def add_item(list, item_name, item_quantity)
   list[item_name] = item_quantity
 end
 
-add_item(grocery_list, "bananas", 5)
+# add_item(grocery_list, "bananas", 5)
 
 
 # Method to remove an item from the list
@@ -47,7 +46,7 @@ def remove_item(list, item_name)
   list.delete(item_name)
 end
 
-remove_item(grocery_list, "apples")
+# remove_item(grocery_list, "apples")
 
 # Method to update the quantity of an item
 # input: list, item name, quantity
@@ -59,7 +58,7 @@ def update_list(list, item_name, item_quantity)
   list[item_name] = item_quantity
 end
 
-update_list(grocery_list, "cereal", 2)
+# update_list(grocery_list, "cereal", 2)
 
 # Method to print a list and make it look pretty, print_list()
 # input:
@@ -69,9 +68,12 @@ update_list(grocery_list, "cereal", 2)
 # output: hash (item: quantity)
 
 def print_list(grocery_list)
+  puts "*" * 20
+  puts "****GROCERY LIST****"
 	grocery_list.each do |key, value|
 		puts "#{key}: #{value}"
 	end
+	puts "*" * 20
 end
 
 print_list(grocery_list)
