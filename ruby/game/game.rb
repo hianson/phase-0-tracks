@@ -4,7 +4,7 @@ class Game
   attr_accessor :secret_word, :guess_count, :is_over
 
 	def initialize
-		@secret_word = "test".downcase
+		@secret_word = "unicorn".downcase
     @guess_limit = @secret_word.length * 2
     @guess_count = 0
     @guess_arr = []
@@ -21,11 +21,11 @@ class Game
 		p @guess_arr
 	end
 
-	def check_game_state
+	def check_game_state(guess_arr)
 		# Print a display
 		state = @secret_word.chars.map do |i|
 			# Check for correctly guessed letters
-			if @guess_arr.include?(i) == true
+			if guess_arr.include?(i) == true
 				i
 			else
 				# Print underscore for unguessed letters
@@ -40,10 +40,12 @@ class Game
 		p state.join(' ')
 	end
 
-	def check_guesses()
-		if @guess_count >= @guess_limit
+	def check_guesses(guesses)
+		if guesses >= @guess_limit
+			@is_over = true
 			return true
 		end
+		return false
 	end
 
 

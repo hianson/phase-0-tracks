@@ -19,7 +19,7 @@ require_relative 'game'
 
 describe Game do
 	let(:game) { Game.new }
-	let(:@goal_word) { "unicorn" }
+	let(:@secret_word) { "unicorn" }
 	let(:letter) { "u" }
 
 	it "checks if a guess was repeated" do
@@ -27,11 +27,18 @@ describe Game do
 	end
 
 	it "prints game state after each guess" do
-		expect(game.check_game_state()).to be_a(String)
+		expect(game.check_game_state(["u"])).to be_a(String)
+		expect(game.check_game_state(["u"])).to include "u"
+		expect(game.check_game_state(["q"])).to start_with "_ "
+		expect(game.check_game_state(["q"])).to include "_ _ _ _ _ _ _"
+		expect(game.check_game_state(["n"])).to end_with "n"
+		expect(game.check_game_state(["u"])).to_not include "a"
 	end
 
-	it "checks if guess_count exceeds guess_limit"
-	expect(game.check_guesses).to eq true
+	it "checks if guess_count exceeds guess_limit" do
+		# @guess_count = 1
+		expect(game.check_guesses(100)).to eq true
+		expect(game.check_guesses(1)).to eq false
 	end
 
 	# it "Gets guess limit" do
