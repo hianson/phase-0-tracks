@@ -11,18 +11,21 @@ class Game
     @is_over = false
 	end
 
-	def check_letter(letter)
-	  # Check if user guessed letter already
-		if @guess_arr.include?(letter)
-		  puts "You already guessed this letter!"
-		p @guess_arr
-			# Or else add it to the guess_arr
-		else
-		  @guess_count += 1
-		  @guess_arr << letter
-		  p @guess_arr
-		end
-	end
+  def check_letter(letter)
+    # Check if user guessed letter already
+    if @guess_arr.include?(letter)
+      puts "You already guessed the letter #{letter}."
+    else
+      if @secret_word.include?(letter)
+        puts "You guessed correctly!"
+      else
+        puts "Wrong."
+      end
+      @guess_count += 1
+      @guess_arr << letter
+      p @guess_arr
+    end
+  end
 
 	def check_game_state()
 		# Print a display
