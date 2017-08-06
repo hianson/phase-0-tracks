@@ -61,3 +61,11 @@ end
 
 game = Game.new(word)
 puts "Word guessing game initialized ..."
+
+while !game.is_over
+  puts "Guess a letter:"
+  letter = gets.chomp.downcase
+  # Check the letter
+  # Print the game's state
+  # Check if player lost (guesses > guess limit)
+end
