@@ -1,21 +1,14 @@
 # 6.7 Solo Challenge
 
-# User can enter a word (or phrase) and another user attempts to guess that word
-# Guesses are limited, max guesses are related to length of word
-# Repeated guesses don't count (store previous guesses in array)
-# Guesser gets continual feedback on state of word:
-	# unicorn : _ _ _ c _ _ _
-# Give congrats for winning or taunting message for losing
-
-# our game should ...
-# allow user 1 to enter a word and save it as a variable
-# split user 1's word into an array of letters
-# allow user 2 to enter (guess) a letter which matches letters in user 1's word
-# use an array to keep track of which letters user 2 has guessed
-# see if user 2's letter matches any letters in user 1's word
-# have variables which keeps track of user 2's letter guesses and guess count (repeated guesses don't count)
-# print the current state of user 2's guesses unicorn : _ _ _ c _ _ _
-# print a congrats message for winning, and taunt message for losing
+# Methods in game will allow us to:
+# Initialize word game with variables for:
+	# secret_word, guess_limit, guess_count, guess_arr, is_over
+# Check if a guess was repeated so it won't count against the user
+	# Print previous guesses after each guess
+# Give continual feedback after each guess
+	# If all letters are guessed correctly, print congratulatory message
+# Check if user has lost after each guess if guess_count >= guess_limit
+	# Print taunt message for losing
 
 # RSpec
 # 'describe' block for each group of tests
@@ -27,31 +20,23 @@ require_relative 'game'
 describe Game do
 	let(:game) { Game.new }
 
-	it "allows user 1 to enter a word and save it as a variable" do
-		# game = Game.new
-		expect(game.enter_word()).to eq "test"
+	it "checks if a guess was repeated" do
+		expect(game.check_letter("a")).to eq true
+		expect(game.check_letter("u")).to eq false
 	end
 
-	it "splits user 1's word into an array of letters" do
-			
+	it "prints game state after each guess" do
+		expect(game.check_game_state(["u"])).to be_a(String)
+		expect(game.check_game_state(["u"])).to include "u"
+		expect(game.check_game_state(["q"])).to start_with "_ "
+		expect(game.check_game_state(["q"])).to include "_ _ _ _ _ _ _"
+		expect(game.check_game_state(["n"])).to end_with "n"
+		expect(game.check_game_state(["u"])).to_not include "a"
 	end
 
-	it "allows user 2 to enter a letter which matches letters in user 1's word" do
-		expect(game.)
+	it "checks if guess_count exceeds guess_limit" do
+		expect(game.check_guesses(100)).to eq true
+		expect(game.check_guesses(1)).to eq false
 	end
 
-	it "uses an array to keep track of which letters user 2 has guessed" do
-	end
-
-	it "sees if user 2's guess matches user 1's word" do
-	end
-
-	it "has variables which keeps track of user 2's letter guesses and guess count (repeated guesses don't count)" do
-	end
-
-	it "prints the current state of user 2's guesses" do
-	end
-
-	it "prints a congratulations or taunt message for winning or losing" do
-	end
 end
