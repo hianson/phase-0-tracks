@@ -3,8 +3,8 @@ class Game
 	attr_reader :guess_limit
   attr_accessor :secret_word, :guess_count, :is_over, :guess_arr
 
-	def initialize
-		@secret_word = "unicorn".downcase
+	def initialize(word)
+		@secret_word = word.downcase
     @guess_limit = @secret_word.length * 2
     @guess_count = 0
     @guess_arr = ["a", "o"]
@@ -53,3 +53,7 @@ end
 
 
 # DRIVER CODE
+puts "Enter a word to begin a word guessing game (letters only):"
+word = gets.chomp
+game = Game.new(word)
+puts "Word guessing game initialized ..."
