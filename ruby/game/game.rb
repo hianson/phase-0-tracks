@@ -13,8 +13,10 @@ class Game
 
 	def check_letter(letter)
 		if @guess_arr.include?(letter)
+		  puts "You already guessed this letter!"
 			return true
 		else
+		  @guess_arr << letter
 			return false
 		end
 		p @guess_arr
@@ -65,7 +67,7 @@ puts "Word guessing game initialized ..."
 while !game.is_over
   puts "Guess a letter:"
   letter = gets.chomp.downcase
-  # Check the letter
+  game.check_letter(letter)
   # Print the game's state
   # Check if player lost (guesses > guess limit)
 end
