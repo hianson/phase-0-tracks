@@ -18,8 +18,9 @@ class Game
 		p @guess_arr
 			# Or else add it to the guess_arr
 		else
+		  @guess_count += 1
 		  @guess_arr << letter
-		p @guess_arr
+		  p @guess_arr
 		end
 	end
 
@@ -42,8 +43,8 @@ class Game
 		p state.join(' ')
 	end
 
-	def check_guesses(guesses)
-		if guesses >= @guess_limit
+	def check_guesses()
+		if @guess_count >= @guess_limit
 			@is_over = true
 			return true
 		end
@@ -70,5 +71,7 @@ while !game.is_over
   letter = gets.chomp.downcase
   game.check_letter(letter)
   game.check_game_state()
-  # Check if player lost (guesses > guess limit)
+  if game.check_guesses == true
+    puts "You lose! Better luck next time!"
+  end
 end
