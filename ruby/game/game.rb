@@ -54,6 +54,10 @@ end
 
 # DRIVER CODE
 puts "Enter a word to begin a word guessing game (letters only):"
-word = gets.chomp
+word = nil
+until /^[a-zA-Z]+$/.match(word)
+  word = gets.chomp
+end
+
 game = Game.new(word)
 puts "Word guessing game initialized ..."
