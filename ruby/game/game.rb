@@ -1,15 +1,15 @@
 # CLASS DECLARATION
-class Game
-	attr_reader :guess_limit
-  attr_accessor :secret_word, :guess_count, :is_over, :guess_arr
+class WordGame
+  attr_reader :guess_limit
+  attr_accessor :secret_word, :guess_count, :is_over
 
-	def initialize(word)
-		@secret_word = word.downcase
+  def initialize(word)
+    @secret_word = word.downcase
     @guess_limit = @secret_word.length * 2
     @guess_count = 0
     @guess_arr = []
     @is_over = false
-	end
+  end
 
   def check_letter(letter)
     # Check if user guessed letter already
@@ -27,24 +27,21 @@ class Game
     end
   end
 
-	def check_game_state()
-		# Print a display
-		state = @secret_word.chars.map do |i|
-			# Check for correctly guessed letters
-			if @guess_arr.include?(i) == true
-				i
-			else
-				# Print underscore for unguessed letters
-				"_"
-			end
-		end
-		# End game if all letters guessed
-		if !state.include?("_")
-			@is_over = true
-			puts "You win!"
-		end
-		p state.join(' ')
-	end
+  def check_game_state
+    state = @secret_word.chars.map do |i|
+      if @guess_arr.include?(i) == true
+        i
+      else
+        "_"
+      end
+    end
+    if !state.include?("_")
+      @is_over = true
+      puts "You win!"
+    end
+    p state.join(' ')
+    puts
+  end
 
   def check_guesses
     if @guess_count >= @guess_limit
@@ -55,9 +52,6 @@ class Game
 
 end
 
-
-
-
 # DRIVER CODE
 puts "Enter a word to begin a word guessing game (letters only):"
 word = nil
@@ -65,7 +59,7 @@ until /^[a-zA-Z]+$/.match(word)
   word = gets.chomp
 end
 
-game = Game.new(word)
+game = WordGame.new(word)
 puts "Word guessing game initialized ..."
 
 while !game.is_over
@@ -75,6 +69,6 @@ while !game.is_over
     letter = gets.chomp.downcase
   end
   game.check_letter(letter)
-  game.check_game_state()
+  game.check_game_state
   game.check_guesses
 end
