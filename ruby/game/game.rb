@@ -12,14 +12,15 @@ class Game
 	end
 
 	def check_letter(letter)
+	  # Check if user guessed letter already
 		if @guess_arr.include?(letter)
 		  puts "You already guessed this letter!"
-			return true
+		p @guess_arr
+			# Or else add it to the guess_arr
 		else
 		  @guess_arr << letter
-			return false
-		end
 		p @guess_arr
+		end
 	end
 
 	def check_game_state(guess_arr)
