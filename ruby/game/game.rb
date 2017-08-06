@@ -43,13 +43,12 @@ class Game
 		p state.join(' ')
 	end
 
-	def check_guesses()
-		if @guess_count >= @guess_limit
-			@is_over = true
-			return true
-		end
-		return false
-	end
+  def check_guesses
+    if @guess_count >= @guess_limit
+      @is_over = true
+      puts "Game over! Better luck next time!"
+    end
+  end
 
 end
 
@@ -67,11 +66,12 @@ game = Game.new(word)
 puts "Word guessing game initialized ..."
 
 while !game.is_over
-  puts "Guess a letter:"
-  letter = gets.chomp.downcase
+  puts "#{game.guess_limit - game.guess_count} guesses left. Guess a letter:"
+  letter = nil
+  until /^[a-z]{1}$/.match(letter)
+    letter = gets.chomp.downcase
+  end
   game.check_letter(letter)
   game.check_game_state()
-  if game.check_guesses == true
-    puts "You lose! Better luck next time!"
-  end
+  game.check_guesses
 end
