@@ -7,7 +7,7 @@ class Game
 		@secret_word = word.downcase
     @guess_limit = @secret_word.length * 2
     @guess_count = 0
-    @guess_arr = ["a", "o"]
+    @guess_arr = []
     @is_over = false
 	end
 
@@ -23,11 +23,11 @@ class Game
 		end
 	end
 
-	def check_game_state(guess_arr)
+	def check_game_state()
 		# Print a display
 		state = @secret_word.chars.map do |i|
 			# Check for correctly guessed letters
-			if guess_arr.include?(i) == true
+			if @guess_arr.include?(i) == true
 				i
 			else
 				# Print underscore for unguessed letters
@@ -69,6 +69,6 @@ while !game.is_over
   puts "Guess a letter:"
   letter = gets.chomp.downcase
   game.check_letter(letter)
-  # Print the game's state
+  game.check_game_state()
   # Check if player lost (guesses > guess limit)
 end
