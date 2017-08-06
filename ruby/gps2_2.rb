@@ -76,4 +76,21 @@ def print_list(grocery_list)
 	puts "*" * 20
 end
 
+# Create a new list
+# Add the following items to your list
+# Lemonade, qty: 2
+# Tomatoes, qty: 3
+# Onions, qty: 1
+# Ice Cream, qty: 4
+# Remove the Lemonade from your list
+# Update the Ice Cream quantity to 1
+# Print out your list (Is this readable and nice looking)?
+
+create_list("Lemonade", grocery_list)
+update_list(grocery_list, "Lemonade", 1)
+add_item(grocery_list, "Tomatoes", 3)
+add_item(grocery_list, "Onions", 1)
+add_item(grocery_list, "Ice Cream", 4)
+remove_item(grocery_list, "Lemonade")
+update_list(grocery_list, "Ice Cream", 1)
 print_list(grocery_list)
