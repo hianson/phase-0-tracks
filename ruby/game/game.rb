@@ -22,18 +22,28 @@ class Game
 	end
 
 	def check_game_state
+		# Print a display
 		state = @secret_word.chars.map do |i|
+			# Check for correctly guessed letters
 			if @guess_arr.include?(i) == true
 				i
 			else
+				# Print underscore for unguessed letters
 				"_"
 			end
 		end
+		# End game if all letters guessed
 		if !state.include?("_")
 			@is_over = true
 			puts "You win!"
 		end
 		p state.join(' ')
+	end
+
+	def check_guesses()
+		if @guess_count >= @guess_limit
+			return true
+		end
 	end
 
 

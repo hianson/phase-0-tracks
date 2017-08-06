@@ -30,6 +30,10 @@ describe Game do
 		expect(game.check_game_state()).to be_a(String)
 	end
 
+	it "checks if guess_count exceeds guess_limit"
+	expect(game.check_guesses).to eq true
+	end
+
 	# it "Gets guess limit" do
 	# 	expect(game.guess_limit(@goal_word)).to be_a(Integer)
 	# end
