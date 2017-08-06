@@ -24,21 +24,43 @@ end
 create_list("carrots apples cereal pizza", grocery_list)
 
 
-# Method to add an item to a list add_item(item)
+# Method to add an item to a list
 # input: list, item name, and optional quantity
 # steps:
-# output:
-#
+  # append item and quantity to list
+# output: true/false
+
+def add_item(list, item_name, item_quantity)
+  list[item_name] = item_quantity
+end
+
+add_item(grocery_list, "bananas", 5)
+
+
 # Method to remove an item from the list
-# input:
+# input: list, item name
 # steps:
-# output:
-#
+  # remove item name and its quantity from list
+# output: true/false
+
+def remove_item(list, item_name)
+  list.delete(item_name)
+end
+
+remove_item(grocery_list, "apples")
+
 # Method to update the quantity of an item
-# input:
+# input: list, item name, quantity
 # steps:
-# output:
-#
+  # change item and quantity to list
+# output: dictionary['cat']
+
+def update_list(list, item_name, item_quantity)
+  list[item_name] = item_quantity
+end
+
+update_list(grocery_list, "cereal", 2)
+
 # Method to print a list and make it look pretty, print_list()
 # input:
 # steps:
