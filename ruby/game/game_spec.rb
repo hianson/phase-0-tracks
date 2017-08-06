@@ -19,11 +19,10 @@ require_relative 'game'
 
 describe Game do
 	let(:game) { Game.new }
-	let(:@secret_word) { "unicorn" }
-	let(:letter) { "u" }
 
 	it "checks if a guess was repeated" do
-		expect(game.check_letter(letter)).to eq true
+		expect(game.check_letter("a")).to eq true
+		expect(game.check_letter("u")).to eq false
 	end
 
 	it "prints game state after each guess" do

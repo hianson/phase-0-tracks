@@ -1,18 +1,17 @@
 # CLASS DECLARATION
 class Game
 	attr_reader :guess_limit
-  attr_accessor :secret_word, :guess_count, :is_over
+  attr_accessor :secret_word, :guess_count, :is_over, :guess_arr
 
 	def initialize
 		@secret_word = "unicorn".downcase
     @guess_limit = @secret_word.length * 2
     @guess_count = 0
-    @guess_arr = []
+    @guess_arr = ["a", "o"]
     @is_over = false
 	end
 
 	def check_letter(letter)
-		@guess_arr = [letter]
 		if @guess_arr.include?(letter)
 			return true
 		else
