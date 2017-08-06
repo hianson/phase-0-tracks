@@ -94,3 +94,17 @@ add_item(grocery_list, "Ice Cream", 4)
 remove_item(grocery_list, "Lemonade")
 update_list(grocery_list, "Ice Cream", 1)
 print_list(grocery_list)
+
+# Reflection
+# What did you learn about pseudocode from working on this challenge?
+	# Pseudocode should not be language-specific and should 'iterate' through everything that happens to an argument when it's passed through a method.
+# What are the tradeoffs of using arrays and hashes for this challenge?
+	# Hashes are more complex in that they will allow you to assign a value to the item. Arrays will only list the items without giving us a chance to provide any context for those items.
+# What does a method return?
+	# Methods will implicitly return the last expression which is evaluated, otherwise explicitly what you ask it to return. We learned that using puts at the end of a method will still return nil, so we will have to watch out for these expressions and what they return, in the future.
+# What kind of things can you pass into methods as arguments?
+	# Pretty much all data types including the ones we used: hashes, strings, integers
+# How can you pass information between methods?
+	# Like we did with the grocery_list, we defined this outside the scope of the methods, then passed in that grocery_list as an argument to the methods. We didn't get a chance to test passing in another method as an argument.
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+	# The biggest concept was regarding which variables are available to use and how to be more aware of those variables' scopes, and that you must pass in a variable in order to manipulate it in a method (unless they are globally defined using $).
