@@ -60,6 +60,7 @@ end
 
 # update_list(grocery_list, "cereal", 2)
 
+
 # Method to print a list and make it look pretty, print_list()
 # input:
 # steps:
