@@ -16,3 +16,10 @@ for (var i = 0; i < names.length; i++) {
 
 }
 console.log(horses);
+
+function Car(name, color, model) {
+	this.name = name;
+	this.color = color;
+	this.model = model;
+	console.log("Car initialized");
+}
