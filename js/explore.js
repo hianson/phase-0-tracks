@@ -1,3 +1,25 @@
+// Release 4:
+// Pseudocode function which reverses string
+// reverse("hello") => "olleh"
+
+// create a variable for reversed string
+// loop through an the entire argument, backwards
+// for each iteration, add the letter to the reversed string variable
+// return the new string
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Release 3:
 for (var i = 0; i <= 10; i++) {
 	console.log(i);
 }
@@ -11,13 +33,6 @@ for (var i = 0; i <= 10; i+=2) {
 for (var i = 10; i >= 0; i--) {
 	console.log(i);
 }
-
-
-
-
-
-
-
 
 // Release 0:
 // What is the equivalent of nil in JavaScript?
