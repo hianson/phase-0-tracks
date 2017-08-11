@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Release 0:
 // What is the equivalent of nil in JavaScript?
 		//'null' in JS is the equivalent of 'nil' in Ruby
@@ -15,3 +28,13 @@
 		// 1. Use (parenthesis) to group conditionals (isOver21 && drinksAlcohol)
 		// 2. Use curly braces for the code block following conditional if-statement {}
 		// 3. 'end' is unnecessary - curly braces simply end the code block
+
+// Release 2:
+// How are functions declared in JavaScript? Try declaring a different function and calling it.
+		// Declared as 'function' as opposed to 'def' in Ruby
+// Do JavaScript functions have implicit return? (What happens when you remove the return keyword from the add function?
+		// No implicit return
+// Notice that the declaration of the sayHello function has parentheses, even though sayHello doesn't take any parameters. Are those necessary? What happens if you remove them?
+		// Parenthesis required!!!!
+// In Ruby, there's no need to use parentheses on a method call if you don't need to pass any arguments to the function. In the JavaScript version, does the code inside sayHello still execute if you remove the parentheses from the function call?
+		// NO!!!
