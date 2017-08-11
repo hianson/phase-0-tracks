@@ -17,11 +17,14 @@ function reverse(string) {
 
 console.log(reverse("hello"));
 
+// Add driver code that calls function to reverse string, store in a variable
 
+var aBackwardsString = reverse("devbootcamp")
 
-
-
-
+// Add driver code to print variable if some condition is true
+if (1 !== -1) {
+	console.log(aBackwardsString);
+}
 
 
 
