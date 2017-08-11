@@ -6,14 +6,16 @@
 // loop through an the entire argument, backwards
 // for each iteration, add the letter to the reversed string variable
 // return the new string
-var string = "hello"
+
 function reverse(string) {
-	reversedString = ""
-	for (var i = 0; i < str.length; i--) {
-		reversedString += i
-	}
-	reversedString
+  reversedString = ""
+  for (var i = string.length-1; i >= 0; i--) {
+	  reversedString = reversedString + string[i]
+  }
+  return reversedString;
 }
+
+console.log(reverse("hello"));
 
 
 
