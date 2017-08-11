@@ -2,9 +2,15 @@ for (var i = 0; i <= 10; i++) {
 	console.log(i);
 }
 
+// Count up by 2
+for (var i = 0; i <= 10; i+=2) {
+	console.log(i);
+}
 
-
-
+// Count down
+for (var i = 10; i >= 0; i--) {
+	console.log(i);
+}
 
 
 
