@@ -6,8 +6,14 @@
 // loop through an the entire argument, backwards
 // for each iteration, add the letter to the reversed string variable
 // return the new string
-
-
+var string = "hello"
+function reverse(string) {
+	reversedString = ""
+	for (var i = 0; i < str.length; i--) {
+		reversedString += i
+	}
+	reversedString
+}
 
 
 
@@ -56,7 +62,7 @@ for (var i = 10; i >= 0; i--) {
 // How are functions declared in JavaScript? Try declaring a different function and calling it.
 		// Declared as 'function' as opposed to 'def' in Ruby
 // Do JavaScript functions have implicit return? (What happens when you remove the return keyword from the add function?
-		// No implicit return
+		// JS function must return something, else implicit return undefined!
 // Notice that the declaration of the sayHello function has parentheses, even though sayHello doesn't take any parameters. Are those necessary? What happens if you remove them?
 		// Parenthesis required!!!!
 // In Ruby, there's no need to use parentheses on a method call if you don't need to pass any arguments to the function. In the JavaScript version, does the code inside sayHello still execute if you remove the parentheses from the function call?
