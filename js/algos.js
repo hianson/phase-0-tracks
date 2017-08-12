@@ -46,6 +46,7 @@ word_arr = ["long phrase","longest phrase","longer phrase"];
 console.log(longestWord(word_arr));
 
 // Release 1 findPair function:
-findPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
-findPairs({a: 1, b: 2, c: 3}, {d: 4, e: 5, c: 6})
+console.log(findPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+console.log(findPairs({a: 1, b: 2, c: 3}, {d: 4, e: 5, f: 6}));
+console.log(findPairs({a: 1, b: 2, c: 3}, {d: 4, e: 5, c: 6}));
 // console.log(findPairs({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}));
