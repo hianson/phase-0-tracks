@@ -34,7 +34,15 @@ function findPairs(hash1, hash2) {
 	return false
 }
 
-
+// Release 2
+// write function that takes an integer for length, builds array of strings with that length length(3) = ["aqef", "bgeag", "cas"]
+// p-code:
+// create variable to hold empty array
+// create variable to generate string length 1 to 10
+// create a for loop which iterates 'argument' number of times
+// for each iteration of loop:
+	// add a random string of letters of random(1-10) length to array
+	
 
 
 
