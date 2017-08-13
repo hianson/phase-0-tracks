@@ -48,10 +48,10 @@ function randTestData(n) {
 		// create variable to generate string length 1 to 10
 		var randWordLength = Math.floor((Math.random() * 10) + 1);
 		// create variable which holds random character to add
-		var randChar = "qwertyuiopasdfghjklzxcvbnm";
+		var possibleLetters = "qwertyuiopasdfghjklzxcvbnm";
 		// create another loop which will create words to add to testDataArray
 		for (var j = 0; j < randWordLength; j++) {
-			word += randChar[Math.floor((Math.random() * randChar.length - 1) + 1)];
+			word += possibleLetters[Math.floor((Math.random() * possibleLetters.length - 1) + 1)];
 		}
 		// add the random string of letters of random(1-10) length to array
 		testDataArray.push(word);
