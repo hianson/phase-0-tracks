@@ -41,27 +41,23 @@ function findPairs(hash1, hash2) {
 function randTestData(n) {
 	// create variable to hold empty array
 	var testDataArray = []
-	// create variable to generate string length 1 to 10
-	var randWordLength = Math.floor((Math.random() * 10) + 1);
-	// create variable which holds random character to add
-	var randChar = "qwertyuiopasdfghjklzxcvbnm"[Math.floor((Math.random() * 26) + 1)];
 	// create a for loop which iterates 'argument' number of times
 	for (var i = 0; i < n; i++) {
+		// create variable to hold word to add
+		var word = ""
+		// create variable to generate string length 1 to 10
+		var randWordLength = Math.floor((Math.random() * 10) + 1);
+		// create variable which holds random character to add
+		var randChar = "qwertyuiopasdfghjklzxcvbnm";
 		// create another loop which will create words to add to testDataArray
-		for (var j = 1; j <= randWordLength; j++) {
-			var word = ""
-			word += "a";
+		for (var j = 0; j < randWordLength; j++) {
+			word += randChar[Math.floor((Math.random() * randChar.length - 1) + 1)];
 		}
-
 		// add the random string of letters of random(1-10) length to array
 		testDataArray.push(word);
 	}
 	console.log(testDataArray);
 }
-
-
-
-
 
 
 // Driver code to test above methods for this assignment:
