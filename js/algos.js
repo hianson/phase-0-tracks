@@ -75,3 +75,11 @@ console.log(findPairs({a: 1, b: 2, c: 3}, {d: 4, e: 5, c: 6}));
 console.log("Printing randTestData function:");
 console.log(randTestData(3));
 console.log(randTestData(6));
+
+// Add driver code that does the following 10 times: generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
+
+// create loop which runs 10 times
+
+// generate and print array using randTestData
+
+// call and print result of longest word function using randTestData as argument
