@@ -56,6 +56,7 @@ function randTestData(n) {
 		// add the random string of letters of random(1-10) length to array
 		testDataArray.push(word);
 	}
+	// console.log(testDataArray); //debugger
 	return testDataArray;
 }
 
@@ -77,9 +78,12 @@ console.log(randTestData(3));
 console.log(randTestData(6));
 
 // Add driver code that does the following 10 times: generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
+// question: how long should each array of random test data be??
 
 // create loop which runs 10 times
-
-// generate and print array using randTestData
+for (var i = 0; i < 10; i++) {
+	// generate and print array using randTestData
+	console.log(longestWord(randTestData(3)));
+}
 
 // call and print result of longest word function using randTestData as argument
