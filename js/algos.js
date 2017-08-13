@@ -35,14 +35,30 @@ function findPairs(hash1, hash2) {
 }
 
 // Release 2
-// write function that takes an integer for length, builds array of strings with that length length(3) = ["aqef", "bgeag", "cas"]
+// write function that takes an integer for length, builds array of strings with that length randTestData(3) = ["aqef", "bgeag", "cas"]
 // p-code:
-// create variable to hold empty array
-// create variable to generate string length 1 to 10
-// create a for loop which iterates 'argument' number of times
 // for each iteration of loop:
-	// add a random string of letters of random(1-10) length to array
-	
+function randTestData(n) {
+	// create variable to hold empty array
+	var testDataArray = []
+	// create variable to generate string length 1 to 10
+	var randWordLength = Math.floor((Math.random() * 10) + 1);
+	// create variable which holds random character to add
+	var randChar = "qwertyuiopasdfghjklzxcvbnm"[Math.floor((Math.random() * 26) + 1)];
+	// create a for loop which iterates 'argument' number of times
+	for (var i = 0; i < n; i++) {
+		// create another loop which will create words to add to testDataArray
+		for (var j = 1; j <= randWordLength; j++) {
+			var word = ""
+			word += "a";
+		}
+
+		// add the random string of letters of random(1-10) length to array
+		testDataArray.push(word);
+	}
+	console.log(testDataArray);
+}
+
 
 
 
@@ -58,3 +74,7 @@ console.log(findPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
 console.log(findPairs({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}));
 console.log(findPairs({a: 1, b: 2, c: 3}, {d: 4, e: 5, f: 6}));
 console.log(findPairs({a: 1, b: 2, c: 3}, {d: 4, e: 5, c: 6}));
+
+// Release 2 randTestData:
+console.log("Printing randTestData function:");
+console.log(randTestData(3));
