@@ -56,7 +56,7 @@ function randTestData(n) {
 		// add the random string of letters of random(1-10) length to array
 		testDataArray.push(word);
 	}
-	console.log(testDataArray);
+	return testDataArray;
 }
 
 
@@ -74,3 +74,4 @@ console.log(findPairs({a: 1, b: 2, c: 3}, {d: 4, e: 5, c: 6}));
 // Release 2 randTestData:
 console.log("Printing randTestData function:");
 console.log(randTestData(3));
+console.log(randTestData(6));
