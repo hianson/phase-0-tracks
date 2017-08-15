@@ -1,0 +1,60 @@
+1:
+sqlite> SELECT * FROM musicians;
+1|Arnold Shortman|guitar|9|1
+2|Helga Pataki|lead vocals|9|3
+3|Phoebe Heyerdahl|bass|9|3
+4|Stinky|bass|9|2
+5|Harold Berman|drums|9|2
+6|Sid|lead vocals|9|2
+7|Gerald Johanssen|lead vocals|9|1
+8|Lila Sawyer|bass|9|1
+9|Eugene Horowitz|piano|9|3
+
+2:
+sqlite> UPDATE musicians SET age=13 WHERE name="Harold Berman";
+sqlite> SELECT * FROM musicians;
+1|Arnold Shortman|guitar|9|1
+2|Helga Pataki|lead vocals|9|3
+3|Phoebe Heyerdahl|bass|9|3
+4|Stinky|drums|9|2
+5|Harold Berman|drums|13|2
+6|Sid|lead vocals|9|2
+7|Gerald Johanssen|lead vocals|9|1
+8|Lila Sawyer|bass|9|1
+9|Eugene Horowitz|piano|9|3
+
+3:
+sqlite> SELECT * FROM musicians, bands WHERE musicians.band_id = bands.id;
+1|Arnold Shortman|guitar|9|1|1|Lt. Salt's LHCB
+2|Helga Pataki|lead vocals|9|3|3|Eclectic Ladyhands
+3|Phoebe Heyerdahl|bass|9|3|3|Eclectic Ladyhands
+4|Stinky|drums|9|2|2|M'Angelo and The Bandguard
+5|Harold Berman|drums|13|2|2|M'Angelo and The Bandguard
+6|Sid|lead vocals|9|2|2|M'Angelo and The Bandguard
+7|Gerald Johanssen|lead vocals|9|1|1|Lt. Salt's LHCB
+8|Lila Sawyer|bass|9|1|1|Lt. Salt's LHCB
+9|Eugene Horowitz|piano|9|3|3|Eclectic Ladyhands
+
+4:
+sqlite> SELECT musicians.name, bands.name FROM musicians JOIN bands ON musicians.band_id=bands.id;
+Arnold Shortman|Lt. Salt's LHCB
+Helga Pataki|Eclectic Ladyhands
+Phoebe Heyerdahl|Eclectic Ladyhands
+Stinky|M'Angelo and The Bandguard
+Harold Berman|M'Angelo and The Bandguard
+Sid|M'Angelo and The Bandguard
+Gerald Johanssen|Lt. Salt's LHCB
+Lila Sawyer|Lt. Salt's LHCB
+Eugene Horowitz|Eclectic Ladyhands
+
+5:
+sqlite> DELETE FROM musicians WHERE name="Eugene Horowitz";
+sqlite> SELECT musicians.name, bands.name FROM musicians JOIN bands ON musicians.band_id=bands.id;
+Arnold Shortman|Lt. Salt's LHCB
+Helga Pataki|Eclectic Ladyhands
+Phoebe Heyerdahl|Eclectic Ladyhands
+Stinky|M'Angelo and The Bandguard
+Harold Berman|M'Angelo and The Bandguard
+Sid|M'Angelo and The Bandguard
+Gerald Johanssen|Lt. Salt's LHCB
+Lila Sawyer|Lt. Salt's LHCB
