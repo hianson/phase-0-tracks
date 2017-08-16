@@ -8,3 +8,4 @@
 # Create, retrieve, manipulate information based on user authentication
 
 require 'sqlite3'
+awesome_db = SQLite3::Database.new("awesome.db")
