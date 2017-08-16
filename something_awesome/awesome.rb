@@ -7,5 +7,15 @@
 # Provide access to information with user authentication
 # Create, retrieve, manipulate information based on user authentication
 
+
+# METHODS
+require_relative 'login.rb'
 require 'sqlite3'
 awesome_db = SQLite3::Database.new("awesome.db")
+
+
+
+
+
+# DRIVER CODE
+# Allow user to register or login
