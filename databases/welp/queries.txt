@@ -1,0 +1,25 @@
+2:
+sqlite> SELECT * FROM reviews
+   ...> JOIN users ON reviews.user_id=users.id
+   ...> JOIN businesses ON reviews.business_id=businesses.id
+   ...> ;
+1|5|Excellent wedding!|1|1|1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel
+2|1|Mad that they towed my car!|2|2|2|Mandy|Kaling|2|Amir's Towing
+3|4|BEST DRINKS EVAR!|3|3|3|Angela|Jolie|3|The Beagle Nightclub
+4|3|I broke my back and got no medical attention, but it's alright!|4|4|4|Steven|Wonder|4|Lotus Yoga
+
+3:
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews
+   ...> JOIN users ON reviews.user_id=users.id
+   ...> JOIN businesses ON reviews.business_id=businesses.id;
+Bradford|Pitt|Grundy Hollow Wedding Chapel|5|Excellent wedding!
+Mandy|Kaling|Amir's Towing|1|Mad that they towed my car!
+Angela|Jolie|The Beagle Nightclub|4|BEST DRINKS EVAR!
+Steven|Wonder|Lotus Yoga|3|I broke my back and got no medical attention, but it's alright!
+
+4:
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews
+   ...> JOIN users ON reviews.user_id=users.id
+   ...> JOIN businesses ON reviews.business_id=businesses.id
+   ...> WHERE businesses.id=1;
+Bradford|Pitt|Grundy Hollow Wedding Chapel|5|Excellent wedding!
