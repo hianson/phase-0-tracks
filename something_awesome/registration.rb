@@ -1,13 +1,17 @@
+
 # Allow user to create an account
 
 def register
-
-
+	# Create a username until successful
+	# Create a password until successful
 end
 
-
-def get_username
+# Call in database so we can manipulate it
+def create_username(database)
 	# Ask for a username
+	puts "Enter a username:"
+	username = gets.chomp
+	# p username_exists?(database)
 
 	# Check if username already exists in database
 
@@ -17,9 +21,15 @@ def get_username
 			# Notify user and make them try again
 
 	# Return a username
+	return username
 end
 
-def get_password
+def username_exists?(database)
+	# check_username_cmd = awesome_db.execute("SELECT usernames.username FROM usernames WHERE username='anson'")
+	check_username_cmd = awesome_db.execute("SELECT * FROM logins;")
+end
+
+def create_password
 	# Ask for a password
 
 	# Create variable to hold password

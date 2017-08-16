@@ -11,11 +11,20 @@
 # METHODS
 require_relative 'registration.rb'
 require 'sqlite3'
+
+# CREATE TABLE:
 awesome_db = SQLite3::Database.new("awesome.db")
-
-
-
+create_usernames_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS logins (
+		id INTEGER PRIMARY KEY,
+		username VARCHAR(255),
+		password VARCHAR(255),
+		email VARCHAR(255)
+	)
+SQL
+awesome_db.execute(create_usernames_table)
 
 
 # DRIVER CODE
 # Allow user to register or login
+create_username(awesome_db)
