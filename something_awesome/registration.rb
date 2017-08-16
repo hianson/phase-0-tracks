@@ -11,7 +11,7 @@ def create_username(database)
 	# Ask for a username
 	puts "Enter a username:"
 	username = gets.chomp
-	# p username_exists?(database)
+	username_exists?(database)
 
 	# Check if username already exists in database
 
@@ -26,7 +26,8 @@ end
 
 def username_exists?(database)
 	# check_username_cmd = awesome_db.execute("SELECT usernames.username FROM usernames WHERE username='anson'")
-	check_username_cmd = awesome_db.execute("SELECT * FROM logins;")
+	check_username_cmd = database.execute("SELECT * FROM logins;")
+	p check_username_cmd
 end
 
 def create_password
