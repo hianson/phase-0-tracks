@@ -9,7 +9,7 @@
 
 
 # METHODS
-require_relative 'login.rb'
+require_relative 'registration.rb'
 require 'sqlite3'
 awesome_db = SQLite3::Database.new("awesome.db")
 

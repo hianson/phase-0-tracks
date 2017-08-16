@@ -2,7 +2,7 @@
 
 def register
 
-	# Ask for a password
+
 end
 
 
@@ -32,5 +32,5 @@ def get_password
 end
 
 def check_database
-	
+
 end
