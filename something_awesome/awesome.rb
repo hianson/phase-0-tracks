@@ -24,8 +24,11 @@ create_usernames_table = <<-SQL
 SQL
 awesome_db.execute(create_usernames_table)
 
-
-# DRIVER CODE
+#############################################################
+# DRIVER CODE # DRIVER CODE # DRIVER CODE # DRIVER CODE ###
+#########################################################
 # Allow user to register or login
 username = create_username(awesome_db)
 # p username
+password = create_password(awesome_db)
+# p password

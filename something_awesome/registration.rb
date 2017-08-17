@@ -29,7 +29,6 @@ def username_available?(database, username)
 	else
 		return false # Username is taken.
 	end
-
 end
 
 def create_password
