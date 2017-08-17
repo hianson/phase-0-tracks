@@ -1,8 +1,13 @@
 # Allow user to create an account
 
-def register
+def register(database)
 	# Create a username until successful
+	username = create_username(database)
 	# Create a password until successful
+	password = create_password
+	puts "Account details:"
+	puts "Username: #{username}"
+	puts "Password: #{password}"
 end
 
 # Call in database so we can manipulate it
@@ -33,14 +38,22 @@ end
 
 def create_password
 	# Ask for a password
-
+	puts "Please enter a new password:"
 	# Create variable to hold password
-
+	password = gets.chomp
 	# Ask user to repeat password
-		# If user repeats password successfully
+	puts "Confirm your password:"
+	password_confirm = gets.chomp
+	# If user repeats password successfully
+	if password == password_confirm
 		# Return the password
+		return password
 		# Otherwise:
-			# Ask user to try again
+	else
+		# Ask user to try again
+		puts "Passwords must match!"
+		create_password
+	end
 end
 
 
