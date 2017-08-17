@@ -10,6 +10,7 @@
 
 # METHODS
 require_relative 'registration.rb'
+require_relative 'ui.rb'
 require 'sqlite3'
 
 # CREATE TABLE:
@@ -28,4 +29,11 @@ awesome_db.execute(create_usernames_table)
 # DRIVER CODE # DRIVER CODE # DRIVER CODE # DRIVER CODE ###
 #########################################################
 # Allow user to register or login
-register(awesome_db)
+puts "Welcome to Something Awesome!"
+puts "Would you like to 'register' or 'login'?"
+user_input = gets.chomp
+if user_input == 'register'
+	register(awesome_db)
+elsif user_input == 'login'
+	# method to login
+end
