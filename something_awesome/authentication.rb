@@ -6,14 +6,17 @@ def login(database)
 	puts "Enter your password:"
 	password = gets.chomp
 	# Check if username and password matches in database
-	find_username = database.execute("SELECT * FROM logins WHERE logins.username = '#{username}'")
-	p find_username[0][2]
-	# password_matches? = find_username.include?(password)
-		# If username and password matches:
-		if find_username[0][2] == password
+	user_info = database.execute("SELECT * FROM logins WHERE logins.username = '#{username}'")
+	# Failed login (username does not exist)
+	# OR (password doesn't match username)
+	if user_info[0] == nil || user_info[0][2] != password
+		puts "Login failed."
+		login(database)
+	# Otherwise if username and password matches:
+	elsif user_info[0][2] == password
 		# Return true for logging in successfully
-			puts "Successfully logged in."
-			return true
+		puts "Successfully logged in."
+		return true
 		# Otherwise:
 		else
 		# Notify user login failed and try again

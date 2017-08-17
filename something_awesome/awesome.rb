@@ -38,7 +38,6 @@ until logged_in == true
 		register(awesome_db)
 	elsif user_input == 'login'
 		# method to login
-		login(awesome_db)
-
+		logged_in = login(awesome_db)
 	end
 end
