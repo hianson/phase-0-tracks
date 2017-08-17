@@ -1,9 +1,5 @@
-# Allow user to create an account
-
 def register(database)
-	# Create a username until successful
 	username = create_username(database)
-	# Create a password until successful
 	password = create_password
 	puts "Account details:"
 	puts "Username: #{username}"
@@ -54,9 +50,4 @@ def create_password
 		puts "Passwords must match!"
 		create_password
 	end
-end
-
-
-def check_database
-
 end
