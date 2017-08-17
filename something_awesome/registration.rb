@@ -1,4 +1,3 @@
-
 # Allow user to create an account
 
 def register
@@ -11,19 +10,18 @@ def create_username(database)
 	# Ask for a username
 	puts "Enter a username:"
 	username = gets.chomp
-	username_available?(database, username)
-
 	# Check if username already exists in database
-
-	# If username doesn't exist:
-		# Save username as a variable to return later
-		# Otherwise if username already exists:
-			# Notify user and make them try again
-
-	# Return a username
-	return username
+	if username_available?(database, username)
+		puts "Username is available!"
+			# If username available, return username:
+		return username
+	else
+		puts "Username is already taken"
+		create_username(database)
+	end
 end
 
+# DO NOT TOUCH THIS IT IS PERFECT SORT OF :)
 def username_available?(database, username)
 	find_user = database.execute("SELECT * FROM logins WHERE logins.username = '#{username}'")
 	if find_user[0] == nil
@@ -45,6 +43,7 @@ def create_password
 		# Otherwise:
 			# Ask user to try again
 end
+
 
 def check_database
 

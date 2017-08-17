@@ -27,4 +27,5 @@ awesome_db.execute(create_usernames_table)
 
 # DRIVER CODE
 # Allow user to register or login
-create_username(awesome_db)
+username = create_username(awesome_db)
+# p username
