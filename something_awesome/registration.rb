@@ -1,9 +1,11 @@
 def register(database)
 	username = create_username(database)
 	password = create_password
+	email = create_email(database)
 	puts "Account details:"
 	puts "Username: #{username}"
 	puts "Password: #{password}"
+	puts "Email: #{email}"
 end
 
 # Call in database so we can manipulate it
@@ -29,6 +31,45 @@ def username_available?(database, username)
 		return true # Username is available!
 	else
 		return false # Username is taken.
+	end
+end
+
+# Ruby cookbook casual email validation
+# in the future we will be sure to send new users a confirmation email
+def validate_email?(email)
+	valid = '[A-Za-z\d.+-]+'
+	(email =~ /#{valid}@#{valid}\.#{valid}/) == 0
+end
+
+def create_email(database)
+	# Ask for an email
+	puts "Enter an email address (ex. something@awesome.com):"
+	email = gets.chomp
+	# Validate email
+	if validate_email?(email) == true
+		# Check if email already exists in database
+		if username_available?(database, email)
+				# If email available, return email:
+			return email
+		else
+			puts "Email is already registered."
+			create_username(database)
+		end
+	else
+		puts "Incorrect format!"
+		create_email(database)
+	end
+
+end
+
+
+
+def email_available?(database, email)
+	find_email = database.execute("SELECT * FROM logins WHERE logins.email = '#{email}'")
+	if find_email[0] == nil
+		return true # Email is available!
+	else
+		return false # Email is taken.
 	end
 end
 
