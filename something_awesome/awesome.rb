@@ -80,11 +80,9 @@ until user_id == nil
 	user_input = gets.chomp
 	if user_input == "1"
 		view_transactions(awesome_db, user_id)
-	end
-	if user_input == "2"
-		add_receipt(awesome_db, user_id)
-	end
-	if user_input == "4"
+	elsif user_input == "2"
+		add_transaction(awesome_db, user_id)
+	elsif user_input == "4"
 		user_id = nil
 	end
 end

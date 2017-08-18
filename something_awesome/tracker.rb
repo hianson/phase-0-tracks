@@ -1,7 +1,5 @@
 # Method to add purchases
-def add_receipt(database, user)
-	# Convert user to login_id so we can add info under correct user
-	login_id = database.execute("SELECT id FROM logins WHERE username='#{user}';")[0][0]
+def add_transaction(database, user_id)
 	# Ask user for item name
 	puts "Enter name of purchase:"
 	item = gets.chomp
@@ -14,16 +12,16 @@ def add_receipt(database, user)
 	# Record date as current date
 	date = Time.new.utc
 	# Insert the information into the purchases table of the database
-	database.execute("
-		INSERT INTO purchases (item, quantity, cost, date, login_id)
-		VALUES ('#{item}', '#{quantity}', '#{cost}', '#{date}', '#{login_id}');")
-	# Implicitly return the SQL command, add to database in the driver code
+	database.execute(
+		"INSERT INTO purchases (item, quantity, cost, date, login_id)
+		VALUES ('#{item}', '#{quantity}', '#{cost}', '#{date}', '#{user_id}');"
+		)
 end
 
-# Method to track purchases
+# Method to view purchases
 def view_transactions(database, user_id)
 	# Insert query to show purchases
-	transactions = database.execute(
+	transaction_list = database.execute(
 		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
 		FROM purchases
 		JOIN logins
@@ -32,7 +30,10 @@ def view_transactions(database, user_id)
 		)
 	puts "*" * 30
 	puts "          purchases"
-	transactions.each do |transaction|
+	transaction_list.each do |transaction|
 		puts transaction.join(" || ")
 	end
+end
+
+def remove_transaction(database, user)
 end

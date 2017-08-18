@@ -1,6 +1,6 @@
 
 
-def login(database) # returns username
+def login(database) # returns user id
 	# Ask for username as variable
 	puts "Enter your username:"
 	username = gets.chomp
@@ -10,7 +10,7 @@ def login(database) # returns username
 	# Check if username and password matches in database
 	user_info = database.execute("
 		SELECT *
-		FROM logins 
+		FROM logins
 		WHERE logins.username = '#{username}'")
 	# Failed login (username does not exist) OR (password doesn't match username)
 	if user_info[0] == nil || user_info[0][2] != password
