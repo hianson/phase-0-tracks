@@ -1,5 +1,5 @@
 # Write some methods to improve item list readability!
-# Get the length of the longest item from database
+# One day these will all get refactored
 def longest_item_name_length(database, user_id)
 	longest = ""
 		item_name = database.execute(

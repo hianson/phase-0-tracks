@@ -39,13 +39,7 @@ def view_transactions(database, user_id)
 	qty_whitespace = longest_item_qty_length(database, user_id)
 	cost_whitespace = longest_item_cost_length(database, user_id)
 	# Insert query to show purchases
-	transaction_list = database.execute(
-		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
-		FROM purchases
-		JOIN logins
-		ON purchases.login_id=logins.id
-		WHERE purchases.login_id='#{user_id}';"
-		)
+	transaction_list = database.execute("SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date FROM purchases JOIN logins ON purchases.login_id=logins.id WHERE purchases.login_id='#{user_id}';")
 	puts "*" * 30
 	puts "          purchases"
 	list_number = 1
@@ -57,6 +51,8 @@ def view_transactions(database, user_id)
 		list_number += 1
 	end
 end
+
+#{ # 'debugging' purposes, please ignore this line
 
 def transaction_count(database, user_id) # Return total number of user's transactions
 	total = 0
@@ -104,5 +100,20 @@ def remove_transaction(database, user_id)
 		# Notify user
 		puts "Item doesn't exist."
 		remove_transaction(database, user_id)
+	end
+end
+
+def clear_list(database, user_id)
+	puts "Enter 'clear items' to delete all items:"
+	user_input = gets.chomp
+	if user_input == "clear items"
+		puts "All items have been cleared."
+		database.execute(
+			"DELETE FROM purchases
+			WHERE login_id='#{user_id}';"
+		)
+	else
+		puts "Items were not cleared."
+		return
 	end
 end

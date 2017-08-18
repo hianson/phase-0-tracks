@@ -73,7 +73,8 @@ until user_id == nil
 	puts "1. show items"
 	puts "2. add an item"
 	puts "3. remove an item"
-	puts "4. exit"
+	puts "4. clear all items from list"
+	puts "0. exit"
 	puts "          select 1-9"
 	puts "*" * 30
 	user_input = gets.chomp
@@ -84,6 +85,8 @@ until user_id == nil
 	elsif user_input == "3"
 		remove_transaction(awesome_db, user_id)
 	elsif user_input == "4"
+		clear_list(awesome_db, user_id)
+	elsif user_input == "0"
 		user_id = nil
 	end
 end
