@@ -51,7 +51,6 @@ user = nil
 # Allow user to register or login
 logged_in = false
 until logged_in == true
-	puts "Welcome to Something Awesome!"
 	puts "Would you like to 'register' or 'login'?"
 	user_input = gets.chomp
 	if user_input == 'register'
@@ -69,4 +68,23 @@ end
 # DRIVER CODE ONCE USER LOGS IN ###########################
 #########################################################
 # Track monthly purchases
-ui
+until user == nil
+	puts "*" * 30
+	puts "             menu"
+	puts "1. view transactions"
+	puts "2. add an item"
+	puts "3. remove an item"
+	puts "4. exit"
+	puts "          select 1-9"
+	puts "*" * 30
+	user_input = gets.chomp
+	if user_input == "1"
+		view_transactions(awesome_db, user)
+	end
+	if user_input == "2"
+		add_receipt(awesome_db, user)
+	end
+	if user_input == "4"
+		user = nil
+	end
+end
