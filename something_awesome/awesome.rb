@@ -1,9 +1,8 @@
-# 'Create something awesome'
-# We don't know what to make, so we're just going to make random parts of something useful
-# Be able to:
-# Create user login data
-# Retrieve user login data
-# Manipulate user login data
+# We've built Something Awesome which lets us keep track of our spending.
+# This thing allows you to:
+# Register a username to keep a personal list.
+# Add items to a list, including their quantites, and costs.
+# View and delete those items.
 # Provide access to information with user authentication
 # Create, retrieve, manipulate information based on user authentication
 
@@ -12,7 +11,6 @@
 require_relative 'registration.rb'
 require_relative 'authentication.rb'
 require_relative 'tracker.rb'
-require_relative 'ui.rb'
 require 'sqlite3'
 
 # CREATE DATABASE:
@@ -51,6 +49,7 @@ user_id = nil
 # Allow user to register or login
 logged_in = false
 until logged_in == true
+	puts "Welcome to the Awesome Expense Tracker!"
 	puts "Would you like to 'register' or 'login'?"
 	user_input = gets.chomp
 	if user_input == 'register'

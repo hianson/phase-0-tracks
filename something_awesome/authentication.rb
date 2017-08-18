@@ -2,11 +2,17 @@
 
 def login(database) # returns user id
 	# Ask for username as variable
-	puts "Enter your username:"
+	puts "Enter your username ('q' to quit):"
 	username = gets.chomp
+	if username == "q"
+		return
+	end
 	# Ask for password as variable
-	puts "Enter your password:"
+	puts "Enter your password ('q' to quit):"
 	password = gets.chomp
+	if password == "q"
+		return
+	end
 	# Check if username and password matches in database
 	user_info = database.execute("
 		SELECT *

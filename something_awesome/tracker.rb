@@ -1,14 +1,23 @@
 # Method to add purchases
 def add_transaction(database, user_id)
 	# Ask user for item name
-	puts "Enter name of purchase:"
+	puts "Enter name of purchase ('q' to quit):"
 	item = gets.chomp
+	if item == "q"
+		return
+	end
 	# Ask user for quantity of item
-	puts "Enter quantity of purchase:"
+	puts "Enter quantity of purchase ('q' to quit):"
 	quantity = gets.chomp#.to_i
+	if quantity == "q"
+		return
+	end
 	# Ask user for cost of item
-	puts "Enter cost of purchase:"
+	puts "Enter cost of purchase ('q' to quit):"
 	cost = gets.chomp#.to_f
+	if cost == "q"
+		return
+	end
 	# Record date as current date
 	date = Time.new.utc
 	# Insert the information into the purchases table of the database
@@ -55,7 +64,7 @@ end
 def remove_transaction(database, user_id)
 	transaction_count = transaction_count(database, user_id)
 	if transaction_count == 0
-		puts "No items to delete."
+		puts "You don't have any transactions to delete."
 		return
 	end
 	# Print transactions
@@ -64,7 +73,6 @@ def remove_transaction(database, user_id)
 	puts "Which item would you like to remove (1 - #{transaction_count}, or 'q' to quit)?"
 	# Get user's input
 	user_input = gets.chomp
-
 	if user_input == "q"
 		return
 	elsif user_input.to_i > 0 && user_input.to_i <= transaction_count

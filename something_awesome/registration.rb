@@ -1,7 +1,16 @@
 def register(database)
 	username = create_username(database)
+	if username == "q"
+		return
+	end
 	password = create_password
+	if password == "q"
+		return
+	end
 	email = create_email(database)
+	if email == "q"
+		return
+	end
 	database.execute("INSERT INTO logins (username, password, email) VALUES ('#{username}', '#{password}', '#{email}');")
 	puts "Registration was successful:"
 	puts "Username: #{username}"
@@ -12,11 +21,10 @@ end
 # Call in database so we can manipulate it
 def create_username(database)
 	# Ask for a username
-	puts "Enter a username:"
+	puts "Enter a username ('q' to quit):"
 	username = gets.chomp
 	# Check if username already exists in database
 	if username_available?(database, username)
-		puts "Username is available!"
 			# If username available, return username:
 		return username
 	else
@@ -44,7 +52,7 @@ end
 
 def create_email(database)
 	# Ask for an email
-	puts "Enter an email address (ex. something@awesome.com):"
+	puts "Enter an email address (ex. something@awesome.com) ('q' to quit):"
 	email = gets.chomp
 	# Validate email
 	if validate_email?(email) == true
@@ -73,12 +81,18 @@ end
 
 def create_password
 	# Ask for a password
-	puts "Please enter a new password:"
+	puts "Please enter a new password ('q' to quit):"
 	# Create variable to hold password
 	password = gets.chomp
+	if password == "q"
+		return password
+	end
 	# Ask user to repeat password
-	puts "Confirm your password:"
+	puts "Confirm your password ('q' to quit):"
 	password_confirm = gets.chomp
+	if password_confirm == "q"
+		return password_confirm
+	end
 	# If user repeats password successfully
 	if password == password_confirm
 		# Return the password
