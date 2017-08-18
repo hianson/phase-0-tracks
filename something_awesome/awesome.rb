@@ -11,6 +11,7 @@
 require_relative 'registration.rb'
 require_relative 'authentication.rb'
 require_relative 'tracker.rb'
+require_relative 'print_methods.rb'
 require 'sqlite3'
 
 # CREATE DATABASE:
@@ -68,15 +69,7 @@ end
 #########################################################
 # Track monthly purchases
 until user_id == nil
-	puts "*" * 30
-	puts "    awesome expense tracker"
-	puts "1. show items"
-	puts "2. add an item"
-	puts "3. remove an item"
-	puts "4. clear all items from list"
-	puts "0. exit"
-	puts "          select 1-9"
-	puts "*" * 30
+	ui
 	user_input = gets.chomp
 	if user_input == "1"
 		view_transactions(awesome_db, user_id)

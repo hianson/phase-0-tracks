@@ -1,3 +1,16 @@
+# Write method to display UI
+def ui
+	puts "*" * 30
+	puts "    awesome expense tracker"
+	puts "1. show items"
+	puts "2. add an item"
+	puts "3. remove an item"
+	puts "4. clear all items from list"
+	puts "0. exit"
+	puts "          select 1-9"
+	puts "*" * 30
+end
+
 # Write some methods to improve item list readability!
 # One day these will all get refactored
 def longest_item_name_length(database, user_id)
