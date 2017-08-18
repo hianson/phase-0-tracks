@@ -14,15 +14,25 @@ def add_receipt(database, user)
 	# Record date as current date
 	date = Time.new.utc
 	# Insert the information into the purchases table of the database
-	database.execute("INSERT INTO purchases (item, quantity, cost, date, login_id) VALUES ('#{item}', '#{quantity}', '#{cost}', '#{date}', '#{login_id}');")
+	database.execute("
+		INSERT INTO purchases (item, quantity, cost, date, login_id)
+		VALUES ('#{item}', '#{quantity}', '#{cost}', '#{date}', '#{login_id}');")
 	# Implicitly return the SQL command, add to database in the driver code
 end
 
 # Method to track purchases
-def view_transactions(database, user)
+def view_transactions(database, user_id)
 	# Insert query to show purchases
-	transactions = database.execute("SELECT logins.username, purchases.item, purchases.quantity, purchases.cost, purchases.date FROM purchases JOIN logins ON purchases.login_id=logins.id WHERE logins.username='#{user}';")[0]
+	transactions = database.execute(
+		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
+		FROM purchases
+		JOIN logins
+		ON purchases.login_id=logins.id
+		WHERE purchases.login_id='#{user_id}';"
+		)
 	puts "*" * 30
 	puts "          purchases"
-	p transactions
+	transactions.each do |transaction|
+		puts transaction.join(" || ")
+	end
 end

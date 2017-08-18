@@ -43,7 +43,7 @@ SQL
 
 awesome_db.execute(create_logins_table)
 awesome_db.execute(create_purchases_table)
-user = nil
+user_id = nil
 
 #############################################################
 # DRIVER CODE # DRIVER CODE # DRIVER CODE # DRIVER CODE ###
@@ -57,9 +57,9 @@ until logged_in == true
 		register(awesome_db)
 	elsif user_input == 'login'
 		# save user as variable to change their data
-		user = login(awesome_db)
+		user_id = login(awesome_db)
 	end
-	if user != nil
+	if user_id != nil
 		logged_in = true
 	end
 end
@@ -68,7 +68,7 @@ end
 # DRIVER CODE ONCE USER LOGS IN ###########################
 #########################################################
 # Track monthly purchases
-until user == nil
+until user_id == nil
 	puts "*" * 30
 	puts "             menu"
 	puts "1. view transactions"
@@ -79,12 +79,12 @@ until user == nil
 	puts "*" * 30
 	user_input = gets.chomp
 	if user_input == "1"
-		view_transactions(awesome_db, user)
+		view_transactions(awesome_db, user_id)
 	end
 	if user_input == "2"
-		add_receipt(awesome_db, user)
+		add_receipt(awesome_db, user_id)
 	end
 	if user_input == "4"
-		user = nil
+		user_id = nil
 	end
 end
