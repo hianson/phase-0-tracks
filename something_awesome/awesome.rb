@@ -41,3 +41,8 @@ until logged_in == true
 		logged_in = login(awesome_db)
 	end
 end
+
+#############################################################
+# DRIVER CODE ONCE USER LOGS IN ###########################
+#########################################################
+# Track monthly purchases

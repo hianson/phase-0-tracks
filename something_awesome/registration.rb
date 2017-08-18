@@ -2,7 +2,8 @@ def register(database)
 	username = create_username(database)
 	password = create_password
 	email = create_email(database)
-	puts "Account details:"
+	database.execute("INSERT INTO logins (username, password, email) VALUES ('#{username}', '#{password}', '#{email}');")
+	puts "Registration was successful:"
 	puts "Username: #{username}"
 	puts "Password: #{password}"
 	puts "Email: #{email}"
@@ -59,10 +60,7 @@ def create_email(database)
 		puts "Incorrect format!"
 		create_email(database)
 	end
-
 end
-
-
 
 def email_available?(database, email)
 	find_email = database.execute("SELECT * FROM logins WHERE logins.email = '#{email}'")

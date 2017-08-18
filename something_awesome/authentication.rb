@@ -1,3 +1,5 @@
+
+
 def login(database)
 	# Ask for username as variable
 	puts "Enter your username:"
@@ -23,5 +25,4 @@ def login(database)
 			puts "Login failed."
 			login(database)
 		end
-
 end
