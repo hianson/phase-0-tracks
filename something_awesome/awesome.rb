@@ -42,6 +42,7 @@ SQL
 
 awesome_db.execute(create_logins_table)
 awesome_db.execute(create_purchases_table)
+user = nil
 
 #############################################################
 # DRIVER CODE # DRIVER CODE # DRIVER CODE # DRIVER CODE ###
@@ -56,7 +57,10 @@ until logged_in == true
 		register(awesome_db)
 	elsif user_input == 'login'
 		# method to login
-		logged_in = login(awesome_db)
+		user = login(awesome_db)
+	end
+	if user != nil
+		logged_in = true
 	end
 end
 

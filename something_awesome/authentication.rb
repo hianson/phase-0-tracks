@@ -17,8 +17,8 @@ def login(database)
 	# Otherwise if username and password matches:
 	elsif user_info[0][2] == password
 		# Return true for logging in successfully
-		puts "Successfully logged in."
-		return true
+		puts "Successfully logged in as #{username}."
+		return username
 		# Otherwise:
 		else
 		# Notify user login failed and try again
