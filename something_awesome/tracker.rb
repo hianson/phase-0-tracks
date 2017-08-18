@@ -34,32 +34,6 @@ def add_transaction(database, user_id)
 		)
 end
 
-# Method to view purchases
-def view_transactions(database, user_id)
-	if transaction_count(database, user_id) == 0
-		puts "Nothing to show."
-		return
-	end
-	# hacky padding for pretty print...
-	name_whitespace = longest_item_name_length(database, user_id)
-	qty_whitespace = longest_item_qty_length(database, user_id)
-	cost_whitespace = longest_item_cost_length(database, user_id)
-	# Insert query to show purchases
-	transaction_list = database.execute("SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date FROM purchases JOIN logins ON purchases.login_id=logins.id WHERE purchases.login_id='#{user_id}';")
-	puts "*" * 30
-	puts "          purchases"
-	list_number = 1
-	puts "#  name" + (" " * name_whitespace) + "qty" + (" " * (qty_whitespace + 2)) + "cost" + (" " * cost_whitespace) + "date"
-	transaction_list.each do |transaction|
-		# puts "#{list_number}. #{transaction.join(" || ")}"
-		# Add spaces to item name equal to adjust - item_name.length
-		puts "#{list_number}. #{transaction[0] + (" " * (name_whitespace - transaction[0].length))} || #{transaction[1].to_s + (" " * (qty_whitespace - transaction[1].to_s.length))} || $#{transaction[2].to_s + (" " * (cost_whitespace - transaction[2].to_s.length))} || #{transaction[3]}"
-		list_number += 1
-	end
-end
-
-#{ # ignore this line: editor 'debugging' purposes :(
-
 def transaction_count(database, user_id) # Returns user's total number of transactions
 	total = 0
 	transaction_list = database.execute(
@@ -126,4 +100,9 @@ def clear_list(database, user_id)
 		puts "Items were not cleared."
 		return
 	end
+end
+
+# Write method to calculate total spent
+def calculate_total(database, user_id)
+
 end
