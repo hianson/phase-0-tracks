@@ -11,11 +11,14 @@
 # METHODS
 require_relative 'registration.rb'
 require_relative 'authentication.rb'
+require_relative 'tracker.rb'
 require 'sqlite3'
 
-# CREATE TABLE:
+# CREATE DATABASE:
 awesome_db = SQLite3::Database.new("awesome.db")
-create_usernames_table = <<-SQL
+
+# CREATE TABLE FOR LOGINS:
+create_logins_table = <<-SQL
 	CREATE TABLE IF NOT EXISTS logins (
 		id INTEGER PRIMARY KEY,
 		username VARCHAR(255),
@@ -23,7 +26,22 @@ create_usernames_table = <<-SQL
 		email VARCHAR(255)
 	)
 SQL
-awesome_db.execute(create_usernames_table)
+
+# CREATE TABLE FOR TRACKER:
+create_purchases_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS purchases (
+		id INTEGER PRIMARY KEY,
+		item VARCHAR(255),
+		quantity REAL,
+		cost REAL,
+		date VARCHAR(255),
+		login_id INT,
+		FOREIGN KEY (login_id) REFERENCES logins(id)
+	)
+SQL
+
+awesome_db.execute(create_logins_table)
+awesome_db.execute(create_purchases_table)
 
 #############################################################
 # DRIVER CODE # DRIVER CODE # DRIVER CODE # DRIVER CODE ###
