@@ -54,20 +54,32 @@ end
 
 def remove_transaction(database, user_id)
 	transaction_count = transaction_count(database, user_id)
+	if transaction_count == 0
+		puts "No items to delete."
+		return
+	end
 	# Print transactions
 	view_transactions(database, user_id)
 	# Ask user which number they want to remove
-	puts "Which item would you like to remove (1 - #{transaction_count})?"
+	puts "Which item would you like to remove (1 - #{transaction_count}, or 'q' to quit)?"
 	# Get user's input
-	transaction_id = gets.chomp.to_i
-	# Convert user's input to database's column id in purchases table
-	db_transaction_id = database.execute("select * from purchases where login_id='#{user_id}';")[transaction_id - 1][0]
-	# Delete the item
-	database.execute(
-		"DELETE FROM purchases
-		WHERE id='#{db_transaction_id}';"
-	)
-	
+	user_input = gets.chomp
+
+	if user_input == "q"
+		return
+	elsif user_input.to_i > 0 && user_input.to_i <= transaction_count
+		# Use user's input to get database's column id in purchases table
+		db_transaction_id = database.execute("select * from purchases where login_id='#{user_id}';")[user_input.to_i - 1][0]
+		# Delete the item
+		database.execute(
+			"DELETE FROM purchases
+			WHERE id='#{db_transaction_id}';"
+		)
+	else
+		puts "Item doesn't exist."
+		remove_transaction(database, user_id)
+	end
+
 	# If number exists
 		# Remove it from database
 		# Otherwise:

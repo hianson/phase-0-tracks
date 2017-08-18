@@ -45,8 +45,6 @@ awesome_db.execute(create_logins_table)
 awesome_db.execute(create_purchases_table)
 user_id = nil
 
-# p awesome_db.execute("select * from purchases where login_id=1;")[1][0]
-
 #############################################################
 # DRIVER CODE # DRIVER CODE # DRIVER CODE # DRIVER CODE ###
 #########################################################
