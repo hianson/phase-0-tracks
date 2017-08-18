@@ -32,16 +32,32 @@ def view_transactions(database, user_id)
 	puts "          purchases"
 	list_number = 1
 	transaction_list.each do |transaction|
-		puts "#{i}. #{transaction.join(" || ")}"
+		puts "#{list_number}. #{transaction.join(" || ")}"
 		list_number += 1
 	end
 end
 
+def transaction_count(database, user_id) # Return number of user's transactions in purchases table
+	total = 0
+	transaction_list = database.execute(
+		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
+		FROM purchases
+		JOIN logins
+		ON purchases.login_id=logins.id
+		WHERE purchases.login_id='#{user_id}';"
+		)
+		transaction_list.each do |transaction|
+			total += 1
+		end
+		return total
+end
+
 def remove_transaction(database, user_id)
+	transaction_count = transaction_count(database, user_id)
 	# Print transactions
 	view_transactions(database, user_id)
 	# Ask user which number they want to remove
-
+	puts "Which item would you like to remove (1 - #{transaction_count})?"
 	# If number exists
 		# Remove it from database
 		# Otherwise:
