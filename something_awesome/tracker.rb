@@ -104,5 +104,14 @@ end
 
 # Write method to calculate total spent
 def calculate_total(database, user_id)
-
+	total = 0
+	item_costs = database.execute(
+		"SELECT *
+		FROM purchases
+		WHERE login_id='#{user_id}';"
+		)
+		item_costs.each do |cost|
+			total += cost[3]
+		end
+		total
 end

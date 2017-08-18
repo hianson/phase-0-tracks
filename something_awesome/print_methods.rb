@@ -51,6 +51,7 @@ def view_transactions(database, user_id)
 		puts "Nothing to show."
 		return
 	end
+	total = calculate_total(database, user_id)
 	# hacky padding for pretty print...
 	name_whitespace = longest_item_name_length(database, user_id)
 	qty_whitespace = longest_item_qty_length(database, user_id)
@@ -67,4 +68,5 @@ def view_transactions(database, user_id)
 		puts "#{list_number}. #{transaction[0] + (" " * (name_whitespace - transaction[0].length))} || #{transaction[1].to_s + (" " * (qty_whitespace - transaction[1].to_s.length))} || $#{transaction[2].to_s + (" " * (cost_whitespace - transaction[2].to_s.length))} || #{transaction[3]}"
 		list_number += 1
 	end
+	puts " " * (name_whitespace + qty_whitespace + cost_whitespace) + "total spent: $#{total.round(2)}"
 end
