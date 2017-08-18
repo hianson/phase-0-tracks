@@ -1,14 +1,5 @@
 require_relative 'print_methods.rb'
 
-# def get_float
-# 	user_input = nil
-# 	# until user_input == 'q' || /^[0-9]+$/.match(user_input)
-# 	until user_input == 'q' || user_input.gsub(/[^\d\.]/, '')#.to_f
-#   	user_input = gets.chomp
-# 	end
-# 	return user_input
-# end
-
 # Method to add purchases
 def add_transaction(database, user_id)
 	# Ask user for item name
@@ -19,16 +10,20 @@ def add_transaction(database, user_id)
 	end
 	# Ask user for quantity of item
 	puts "Enter quantity of purchase ('q' to quit):"
-	quantity = gets.chomp.gsub(/[^\d\.]/, '').to_f
+	# We only want digits stored in these columns
+	quantity = gets.chomp
 	if quantity == "q"
 		return
-	elsif quantity
+	else
+		quantity = quantity.gsub(/[^\d\.]/, '').to_f
 	end
 	# Ask user for cost of item
 	puts "Enter cost of purchase ('q' to quit):"
-	cost = gets.chomp.gsub(/[^\d\.]/, '').to_f
+	cost = gets.chomp
 	if cost == "q"
 		return
+	else
+		cost = cost.gsub(/[^\d\.]/, '').to_f
 	end
 	# Record date as current date
 	date = Time.new.utc
@@ -63,7 +58,7 @@ def view_transactions(database, user_id)
 	end
 end
 
-#{ # 'debugging' purposes, please ignore this line
+#{ # ignore this line: editor 'debugging' purposes :(
 
 def transaction_count(database, user_id) # Returns user's total number of transactions
 	total = 0
