@@ -82,6 +82,8 @@ until user_id == nil
 		view_transactions(awesome_db, user_id)
 	elsif user_input == "2"
 		add_transaction(awesome_db, user_id)
+	elsif user_input == "3"
+		remove_transaction(awesome_db, user_id)
 	elsif user_input == "4"
 		user_id = nil
 	end

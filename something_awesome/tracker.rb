@@ -30,10 +30,20 @@ def view_transactions(database, user_id)
 		)
 	puts "*" * 30
 	puts "          purchases"
+	list_number = 1
 	transaction_list.each do |transaction|
-		puts transaction.join(" || ")
+		puts "#{i}. #{transaction.join(" || ")}"
+		list_number += 1
 	end
 end
 
-def remove_transaction(database, user)
+def remove_transaction(database, user_id)
+	# Print transactions
+	view_transactions(database, user_id)
+	# Ask user which number they want to remove
+
+	# If number exists
+		# Remove it from database
+		# Otherwise:
+			# Notify user
 end
