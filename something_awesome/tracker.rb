@@ -54,7 +54,7 @@ end
 
 #{ # 'debugging' purposes, please ignore this line
 
-def transaction_count(database, user_id) # Return total number of user's transactions
+def transaction_count(database, user_id) # Returns user's total number of transactions
 	total = 0
 	transaction_list = database.execute(
 		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
@@ -104,6 +104,10 @@ def remove_transaction(database, user_id)
 end
 
 def clear_list(database, user_id)
+	if transaction_count(database, user_id) == 0
+		puts "You don't have any items to remove."
+		return
+	end
 	puts "Enter 'clear items' to delete all items:"
 	user_input = gets.chomp
 	if user_input == "clear items"
