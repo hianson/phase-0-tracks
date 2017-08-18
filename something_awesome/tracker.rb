@@ -58,6 +58,16 @@ def remove_transaction(database, user_id)
 	view_transactions(database, user_id)
 	# Ask user which number they want to remove
 	puts "Which item would you like to remove (1 - #{transaction_count})?"
+	# Get user's input
+	transaction_id = gets.chomp.to_i
+	# Convert user's input to database's column id in purchases table
+	db_transaction_id = database.execute("select * from purchases where login_id='#{user_id}';")[transaction_id - 1][0]
+	# Delete the item
+	database.execute(
+		"DELETE FROM purchases
+		WHERE id='#{db_transaction_id}';"
+	)
+	
 	# If number exists
 		# Remove it from database
 		# Otherwise:
