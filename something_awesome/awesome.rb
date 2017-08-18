@@ -3,8 +3,8 @@
 # Register a username to keep a personal list.
 # Add items to a list, including their quantites, and costs.
 # View and delete those items.
-# Provide access to information with user authentication
-# Create, retrieve, manipulate information based on user authentication
+# Provide access to information with "user authentication" ;p
+# Create, retrieve, manipulate information based on "user authentication"
 
 
 # METHODS
@@ -69,6 +69,7 @@ end
 #########################################################
 # Track monthly purchases
 until user_id == nil
+	# Find a description of the options in print_methods.rb
 	ui
 	user_input = gets.chomp
 	if user_input == "1"
@@ -79,7 +80,7 @@ until user_id == nil
 		remove_transaction(awesome_db, user_id)
 	elsif user_input == "4"
 		clear_list(awesome_db, user_id)
-	elsif user_input == "0"
+	elsif user_input == "5"
 		user_id = nil
 	end
 end

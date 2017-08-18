@@ -1,13 +1,19 @@
 # Write method to display UI
 def ui
+	menu_items = [
+		"show items",
+		"add an item",
+		"remove an item",
+		"clear all items from list",
+		"exit"
+	]
 	puts "*" * 30
-	puts "    awesome expense tracker"
-	puts "1. show items"
-	puts "2. add an item"
-	puts "3. remove an item"
-	puts "4. clear all items from list"
-	puts "0. exit"
-	puts "          select 1-9"
+	i = 0
+	while i < menu_items.length
+		puts "#{i + 1}. #{menu_items[i]}"
+		i += 1
+	end
+	puts "          select 1-#{i}"
 	puts "*" * 30
 end
 
