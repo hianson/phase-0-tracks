@@ -1,6 +1,6 @@
 
 
-def login(database)
+def login(database) # returns username
 	# Ask for username as variable
 	puts "Enter your username:"
 	username = gets.chomp

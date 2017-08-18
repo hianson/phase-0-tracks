@@ -56,7 +56,7 @@ until logged_in == true
 	if user_input == 'register'
 		register(awesome_db)
 	elsif user_input == 'login'
-		# method to login
+		# save user as variable to change their data
 		user = login(awesome_db)
 	end
 	if user != nil
@@ -68,3 +68,5 @@ end
 # DRIVER CODE ONCE USER LOGS IN ###########################
 #########################################################
 # Track monthly purchases
+# add_receipt(awesome_db, user)
+add_receipt(awesome_db, user)

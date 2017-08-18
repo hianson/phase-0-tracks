@@ -57,7 +57,7 @@ def create_email(database)
 			create_username(database)
 		end
 	else
-		puts "Incorrect format!"
+		puts "Incorrect format."
 		create_email(database)
 	end
 end
