@@ -1,3 +1,5 @@
+require_relative 'print_methods.rb'
+
 # Method to add purchases
 def add_transaction(database, user_id)
 	# Ask user for item name
@@ -33,6 +35,9 @@ def view_transactions(database, user_id)
 		puts "Nothing to show."
 		return
 	end
+	name_whitespace = longest_item_name_length(database, user_id)
+	qty_whitespace = longest_item_qty_length(database, user_id)
+	cost_whitespace = longest_item_cost_length(database, user_id)
 	# Insert query to show purchases
 	transaction_list = database.execute(
 		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
@@ -44,8 +49,11 @@ def view_transactions(database, user_id)
 	puts "*" * 30
 	puts "          purchases"
 	list_number = 1
+	puts "#  name" + (" " * name_whitespace) + "qty" + (" " * qty_whitespace) + "  cost" + (" " * cost_whitespace) + "date"
 	transaction_list.each do |transaction|
-		puts "#{list_number}. #{transaction.join(" || ")}"
+		# puts "#{list_number}. #{transaction.join(" || ")}"
+		# Add spaces to item name equal to adjust - item_name.length
+		puts "#{list_number}. #{transaction[0] + (" " * (name_whitespace - transaction[0].length))} || #{transaction[1].to_s + (" " * (qty_whitespace - transaction[1].to_s.length))} || #{transaction[2].to_s + (" " * (cost_whitespace - transaction[2].to_s.length))} || #{transaction[3]}"
 		list_number += 1
 	end
 end
@@ -82,7 +90,11 @@ def remove_transaction(database, user_id)
 	# If number exists
 	elsif user_input.to_i > 0 && user_input.to_i <= transaction_count
 		# Use user's input to get database's column id in purchases table
-		db_transaction_id = database.execute("select * from purchases where login_id='#{user_id}';")[user_input.to_i - 1][0]
+		db_transaction_id = database.execute(
+			"SELECT *
+			FROM purchases
+			WHERE login_id='#{user_id}';"
+			)[user_input.to_i - 1][0]
 		# Delete the item
 		database.execute(
 			"DELETE FROM purchases
