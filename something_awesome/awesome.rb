@@ -70,7 +70,7 @@ end
 until user_id == nil
 	puts "*" * 30
 	puts "             menu"
-	puts "1. show transactions"
+	puts "1. show items"
 	puts "2. add an item"
 	puts "3. remove an item"
 	puts "4. exit"

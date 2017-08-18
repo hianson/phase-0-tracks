@@ -33,7 +33,6 @@ def create_username(database)
 	end
 end
 
-# DO NOT TOUCH THIS IT IS PERFECT SORT OF :)
 def username_available?(database, username)
 	find_user = database.execute("SELECT * FROM logins WHERE logins.username = '#{username}'")
 	if find_user[0] == nil
@@ -79,7 +78,7 @@ def email_available?(database, email)
 	end
 end
 
-def create_password
+def create_password # Ideally returns a password
 	# Ask for a password
 	puts "Please enter a new password ('q' to quit):"
 	# Create variable to hold password

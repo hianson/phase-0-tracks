@@ -30,7 +30,8 @@ end
 # Method to view purchases
 def view_transactions(database, user_id)
 	if transaction_count(database, user_id) == 0
-		puts "No transactions to show."
+		puts "Nothing to show."
+		return
 	end
 	# Insert query to show purchases
 	transaction_list = database.execute(
@@ -67,7 +68,7 @@ end
 def remove_transaction(database, user_id)
 	transaction_count = transaction_count(database, user_id)
 	if transaction_count == 0
-		puts "You don't have any transactions to delete."
+		puts "You don't have any items to remove."
 		return
 	end
 	# Print transactions
@@ -78,6 +79,7 @@ def remove_transaction(database, user_id)
 	user_input = gets.chomp
 	if user_input == "q"
 		return
+	# If number exists
 	elsif user_input.to_i > 0 && user_input.to_i <= transaction_count
 		# Use user's input to get database's column id in purchases table
 		db_transaction_id = database.execute("select * from purchases where login_id='#{user_id}';")[user_input.to_i - 1][0]
@@ -87,12 +89,8 @@ def remove_transaction(database, user_id)
 			WHERE id='#{db_transaction_id}';"
 		)
 	else
+		# Notify user
 		puts "Item doesn't exist."
 		remove_transaction(database, user_id)
 	end
-
-	# If number exists
-		# Remove it from database
-		# Otherwise:
-			# Notify user
 end
