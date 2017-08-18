@@ -69,7 +69,7 @@ end
 # Track monthly purchases
 until user_id == nil
 	puts "*" * 30
-	puts "             menu"
+	puts "    awesome expense tracker"
 	puts "1. show items"
 	puts "2. add an item"
 	puts "3. remove an item"
