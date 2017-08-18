@@ -29,6 +29,9 @@ end
 
 # Method to view purchases
 def view_transactions(database, user_id)
+	if transaction_count(database, user_id) == 0
+		puts "No transactions to show."
+	end
 	# Insert query to show purchases
 	transaction_list = database.execute(
 		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
@@ -46,7 +49,7 @@ def view_transactions(database, user_id)
 	end
 end
 
-def transaction_count(database, user_id) # Return number of user's transactions in purchases table
+def transaction_count(database, user_id) # Return total number of user's transactions
 	total = 0
 	transaction_list = database.execute(
 		"SELECT purchases.item, purchases.quantity, purchases.cost, purchases.date
