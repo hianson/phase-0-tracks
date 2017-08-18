@@ -1,12 +1,13 @@
 require_relative 'print_methods.rb'
 
-def get_float
-	user_input = nil
-	until user_input == 'q' || /^[0-9]+$/.match(user_input)
-  	user_input = gets.chomp
-	end
-	return user_input
-end
+# def get_float
+# 	user_input = nil
+# 	# until user_input == 'q' || /^[0-9]+$/.match(user_input)
+# 	until user_input == 'q' || user_input.gsub(/[^\d\.]/, '')#.to_f
+#   	user_input = gets.chomp
+# 	end
+# 	return user_input
+# end
 
 # Method to add purchases
 def add_transaction(database, user_id)
@@ -18,14 +19,14 @@ def add_transaction(database, user_id)
 	end
 	# Ask user for quantity of item
 	puts "Enter quantity of purchase ('q' to quit):"
-	quantity = get_float
+	quantity = gets.chomp.gsub(/[^\d\.]/, '').to_f
 	if quantity == "q"
 		return
 	elsif quantity
 	end
 	# Ask user for cost of item
 	puts "Enter cost of purchase ('q' to quit):"
-	cost = get_float
+	cost = gets.chomp.gsub(/[^\d\.]/, '').to_f
 	if cost == "q"
 		return
 	end
@@ -44,6 +45,7 @@ def view_transactions(database, user_id)
 		puts "Nothing to show."
 		return
 	end
+	# hacky padding for pretty print...
 	name_whitespace = longest_item_name_length(database, user_id)
 	qty_whitespace = longest_item_qty_length(database, user_id)
 	cost_whitespace = longest_item_cost_length(database, user_id)
@@ -52,11 +54,11 @@ def view_transactions(database, user_id)
 	puts "*" * 30
 	puts "          purchases"
 	list_number = 1
-	puts "#  name" + (" " * name_whitespace) + "qty" + (" " * qty_whitespace) + "  cost" + (" " * cost_whitespace) + "date"
+	puts "#  name" + (" " * name_whitespace) + "qty" + (" " * (qty_whitespace + 2)) + "cost" + (" " * cost_whitespace) + "date"
 	transaction_list.each do |transaction|
 		# puts "#{list_number}. #{transaction.join(" || ")}"
 		# Add spaces to item name equal to adjust - item_name.length
-		puts "#{list_number}. #{transaction[0] + (" " * (name_whitespace - transaction[0].length))} || #{transaction[1].to_s + (" " * (qty_whitespace - transaction[1].to_s.length))} || #{transaction[2].to_s + (" " * (cost_whitespace - transaction[2].to_s.length))} || #{transaction[3]}"
+		puts "#{list_number}. #{transaction[0] + (" " * (name_whitespace - transaction[0].length))} || #{transaction[1].to_s + (" " * (qty_whitespace - transaction[1].to_s.length))} || $#{transaction[2].to_s + (" " * (cost_whitespace - transaction[2].to_s.length))} || #{transaction[3]}"
 		list_number += 1
 	end
 end
