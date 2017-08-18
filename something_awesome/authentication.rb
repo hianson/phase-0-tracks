@@ -9,8 +9,7 @@ def login(database) # returns username
 	password = gets.chomp
 	# Check if username and password matches in database
 	user_info = database.execute("SELECT * FROM logins WHERE logins.username = '#{username}'")
-	# Failed login (username does not exist)
-	# OR (password doesn't match username)
+	# Failed login (username does not exist) OR (password doesn't match username)
 	if user_info[0] == nil || user_info[0][2] != password
 		puts "Login failed."
 		login(database)

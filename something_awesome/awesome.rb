@@ -12,6 +12,7 @@
 require_relative 'registration.rb'
 require_relative 'authentication.rb'
 require_relative 'tracker.rb'
+require_relative 'ui.rb'
 require 'sqlite3'
 
 # CREATE DATABASE:
@@ -68,5 +69,4 @@ end
 # DRIVER CODE ONCE USER LOGS IN ###########################
 #########################################################
 # Track monthly purchases
-# add_receipt(awesome_db, user)
-add_receipt(awesome_db, user)
+ui
