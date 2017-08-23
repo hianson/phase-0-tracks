@@ -88,3 +88,7 @@ get '/campus' do
 	  response
 	end
 end
+
+# Other Ruby web app libraries: RoR, Volt
+# Other database options for Sinatra: PostgreSQL, Mongo with ways to communicate with database like ActiveRecord, DataMapper
+# Web stacks are comprised of multiple technologies which work together for web development
