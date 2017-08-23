@@ -1,7 +1,15 @@
 * {
-	border: 1px solid red;
+	/*border: 1px dashed pink;*/
 	margin: 0;
 	padding: 0;
+}
+
+body {
+
+}
+
+div {
+	margin: 0 10px 0 10px;
 }
 
 #div1 {
