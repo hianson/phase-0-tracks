@@ -44,7 +44,21 @@ $(document).ready(function() {
 	// $('div:eq(1)').text('a!');
 	// alert($('p').text());
 	// $('div:eq(1)').html('<em>a</em>!');
-	$('input').val('sick input value');
-	alert($('input').val());
+	// $('input').val('sick input value');
+	// alert($('input').val());
+
+	// DOM Traversal
+	// $('h1').children().css('border', '4px solid red');
+	// $('h1').parents().css('border', '4px solid red');
+	// $('h1').parents('body').css('border', '4px solid red');
+	// $('h1').siblings('div:last').css('border', '4px solid red');
+	// $('h1').parents('body').css('border', '4px solid red');
+
+	// Event Binding clicks, hovers, inserting cursor into input field, keystrokes, menus, tabs
+	// .hover, .keypress
+	$('h1').bind('click', function(){
+		$(this).toggleClass('coolClass');
+	});
+
 
 });
